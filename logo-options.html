@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>華宇資訊科技 — LOGO 方案選擇</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang TC', 'Noto Sans TC', sans-serif;
+      background: #F0F6FF;
+      color: #1a2a4a;
+      min-height: 100vh;
+      padding: 48px 24px;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+    header h1 {
+      font-size: 2rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, #2B7BE5 0%, #1E5CB3 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 10px;
+    }
+    header p { font-size: 1rem; color: #5f7a9e; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 28px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 20px;
+      border: 1.5px solid #dce8fb;
+      box-shadow: 0 4px 28px rgba(43,123,229,0.08);
+      overflow: hidden;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .card:hover {
+      box-shadow: 0 10px 48px rgba(43,123,229,0.18);
+      transform: translateY(-3px);
+    }
+
+    .preview {
+      background: linear-gradient(135deg, #E8F3FF 0%, #c8dfff 100%);
+      padding: 48px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      min-height: 180px;
+      position: relative;
+      overflow: hidden;
+    }
+    .preview::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(circle, rgba(43,123,229,0.1) 1px, transparent 1px);
+      background-size: 22px 22px;
+    }
+
+    /* Dark preview variant */
+    .preview.dark {
+      background: linear-gradient(135deg, #0d2040 0%, #1a3868 100%);
+    }
+    .preview.dark::before {
+      background-image: radial-gradient(circle, rgba(91,159,224,0.15) 1px, transparent 1px);
+    }
+
+    /* White preview variant */
+    .preview.white {
+      background: #ffffff;
+      border-bottom: 1.5px solid #dce8fb;
+    }
+    .preview.white::before {
+      background-image: radial-gradient(circle, rgba(43,123,229,0.07) 1px, transparent 1px);
+    }
+
+    .brand-text {
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: #1a2a4a;
+      letter-spacing: 0.01em;
+      position: relative;
+      z-index: 1;
+      white-space: nowrap;
+    }
+    .brand-text.light-text { color: #ffffff; }
+    .brand-text .sub {
+      display: block;
+      font-size: 0.62rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      color: #5B9FE0;
+      margin-top: 1px;
+    }
+    .brand-text.light-text .sub { color: #93c5fd; }
+
+    .card-info {
+      padding: 20px 24px 24px;
+    }
+    .card-info h2 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #1a2a4a;
+      margin-bottom: 6px;
+    }
+    .tag-row { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 10px; }
+    .tag {
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 3px 10px;
+      border-radius: 999px;
+      background: #E8F3FF;
+      color: #2B7BE5;
+      border: 1px solid #b3d4ff;
+    }
+    .card-info p {
+      font-size: 0.85rem;
+      color: #5f7a9e;
+      line-height: 1.65;
+    }
+
+    .swatches { display: flex; gap: 8px; margin-top: 14px; align-items: center; }
+    .swatch {
+      width: 22px; height: 22px;
+      border-radius: 50%;
+      border: 2px solid #fff;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.15);
+    }
+    .swatch-label { font-size: 0.72rem; color: #8ea8c3; margin-left: 2px; }
+
+    /* ─── SVG logo wrappers ─── */
+    .logo-wrap { position: relative; z-index: 1; display: flex; align-items: center; gap: 14px; }
+
+    footer {
+      text-align: center;
+      margin-top: 64px;
+      font-size: 0.8rem;
+      color: #8ea8c3;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>LOGO 方案選擇</h1>
+  <p>以下 5 款設計均基於網站現有品牌色與設計語言，請選擇最符合品牌調性的版本。</p>
+</header>
+
+<div class="grid">
+
+  <!-- ===== A ===== -->
+  <div class="card">
+    <div class="preview">
+      <div class="logo-wrap">
+        <!-- Icon -->
+        <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" style="position:relative;z-index:1;filter:drop-shadow(0 4px 10px rgba(43,123,229,0.35))">
+          <rect width="44" height="44" rx="12" fill="url(#a-grad)"/>
+          <text x="22" y="30" text-anchor="middle" font-family="-apple-system,sans-serif" font-weight="800" font-size="22" fill="white">H</text>
+          <defs>
+            <linearGradient id="a-grad" x1="0" y1="0" x2="44" y2="44" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#2B7BE5"/>
+              <stop offset="1" stop-color="#1E5CB3"/>
+            </linearGradient>
+          </defs>
+        </svg>
+        <div class="brand-text">
+          華宇資訊科技
+          <span class="sub">HUAYU TECHNOLOGY</span>
+        </div>
+      </div>
+    </div>
+    <div class="card-info">
+      <h2>方案 A — 方塊字母（現有精修版）</h2>
+      <div class="tag-row">
+        <span class="tag">簡潔</span><span class="tag">專業</span><span class="tag">易辨識</span>
+      </div>
+      <p>保留現有方塊造型，強化圓角比例與字重，加入英文副標增加國際感。適合 Navbar、名片、官網 Favicon 使用。</p>
+      <div class="swatches">
+        <div class="swatch" style="background:#2B7BE5"></div>
+        <div class="swatch" style="background:#1E5CB3"></div>
+        <div class="swatch" style="background:#ffffff"></div>
+        <span class="swatch-label">品牌藍漸層 + 白底文字</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== B ===== -->
+  <div class="card">
+    <div class="preview">
+      <div class="logo-wrap">
+        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" style="position:relative;z-index:1;filter:drop-shadow(0 4px 14px rgba(43,123,229,0.4))">
+          <!-- Hexagon -->
+          <polygon points="24,3 43,13.5 43,34.5 24,45 5,34.5 5,13.5" fill="url(#b-grad)"/>
+          <!-- H letter -->
+          <line x1="16" y1="16" x2="16" y2="32" stroke="white" stroke-width="3.5" stroke-linecap="round"/>
+          <line x1="32" y1="16" x2="32" y2="32" stroke="white" stroke-width="3.5" stroke-linecap="round"/>
+          <line x1="16" y1="24" x2="32" y2="24" stroke="white" stroke-width="3.5" stroke-linecap="round"/>
+          <defs>
+            <linearGradient id="b-grad" x1="5" y1="3" x2="43" y2="45" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#5B9FE0"/>
+              <stop offset="1" stop-color="#1E5CB3"/>
+            </linearGradient>
+          </defs>
+        </svg>
+        <div class="brand-text">
+          華宇資訊科技
+          <span class="sub">HUAYU TECHNOLOGY</span>
+        </div>
+      </div>
+    </div>
+    <div class="card-info">
+      <h2>方案 B — 六角科技感</h2>
+      <div class="tag-row">
+        <span class="tag">科技</span><span class="tag">數位感</span><span class="tag">穩重</span>
+      </div>
+      <p>六邊形源自科技、資料、蜂巢結構，傳遞「精密工程」形象。H 字型以線條構成，強化系統整合與 API 開發的技術定位。</p>
+      <div class="swatches">
+        <div class="swatch" style="background:#5B9FE0"></div>
+        <div class="swatch" style="background:#1E5CB3"></div>
+        <div class="swatch" style="background:#ffffff"></div>
+        <span class="swatch-label">中藍漸層 + 線條H</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== C ===== -->
+  <div class="card">
+    <div class="preview dark">
+      <div class="logo-wrap">
+        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" style="position:relative;z-index:1;filter:drop-shadow(0 4px 16px rgba(91,159,224,0.5))">
+          <!-- Outer ring glow -->
+          <circle cx="24" cy="24" r="22" fill="rgba(43,123,229,0.15)" />
+          <!-- Circle bg -->
+          <circle cx="24" cy="24" r="19" fill="url(#c-grad)"/>
+          <!-- Up-arrow / rocket shape -->
+          <path d="M24 10 L30 22 H26 V36 H22 V22 H18 Z" fill="white" opacity="0.95"/>
+          <!-- Side fins -->
+          <path d="M18 28 L14 34 H18" fill="white" opacity="0.6"/>
+          <path d="M30 28 L34 34 H30" fill="white" opacity="0.6"/>
+          <!-- Exhaust glow -->
+          <ellipse cx="24" cy="36" rx="3" ry="4" fill="url(#c-flame)" opacity="0.8"/>
+          <defs>
+            <linearGradient id="c-grad" x1="5" y1="5" x2="43" y2="43" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#2B7BE5"/>
+              <stop offset="1" stop-color="#0F2E6E"/>
+            </linearGradient>
+            <linearGradient id="c-flame" x1="24" y1="32" x2="24" y2="40" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#93c5fd"/>
+              <stop offset="1" stop-color="#2B7BE5" stop-opacity="0"/>
+            </linearGradient>
+          </defs>
+        </svg>
+        <div class="brand-text light-text">
+          華宇資訊科技
+          <span class="sub">DIGITAL LIFT-OFF</span>
+        </div>
+      </div>
+    </div>
+    <div class="card-info">
+      <h2>方案 C — 起飛火箭（深色）</h2>
+      <div class="tag-row">
+        <span class="tag">動感</span><span class="tag">成長感</span><span class="tag">品牌故事</span>
+      </div>
+      <p>呼應網站 Hero 標語「讓您的業務數位化起飛」，火箭圖示傳遞高速成長與創新氣息。深色底版本在深色背景或 App Splash 畫面表現出色。</p>
+      <div class="swatches">
+        <div class="swatch" style="background:#0d2040"></div>
+        <div class="swatch" style="background:#2B7BE5"></div>
+        <div class="swatch" style="background:#93c5fd"></div>
+        <span class="swatch-label">深海藍底 + 發光火箭</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== D ===== -->
+  <div class="card">
+    <div class="preview white">
+      <div class="logo-wrap">
+        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" style="position:relative;z-index:1;filter:drop-shadow(0 4px 12px rgba(43,123,229,0.3))">
+          <!-- Outer square rounded -->
+          <rect x="2" y="2" width="44" height="44" rx="14" fill="url(#d-bg)" />
+          <!-- Abstract H with flowing curve = 數位轉型 -->
+          <!-- Left bar -->
+          <rect x="13" y="13" width="5" height="22" rx="2.5" fill="white"/>
+          <!-- Right bar -->
+          <rect x="30" y="13" width="5" height="22" rx="2.5" fill="white"/>
+          <!-- Crossbar - slightly upward curve using path -->
+          <path d="M18 22 Q24 18 30 22" stroke="white" stroke-width="4.5" stroke-linecap="round" fill="none"/>
+          <!-- Small sparkle -->
+          <circle cx="37" cy="11" r="2.5" fill="#93c5fd"/>
+          <defs>
+            <linearGradient id="d-bg" x1="2" y1="2" x2="46" y2="46" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#2B7BE5"/>
+              <stop offset="1" stop-color="#1E5CB3"/>
+            </linearGradient>
+          </defs>
+        </svg>
+        <div class="brand-text">
+          華宇資訊科技
+          <span class="sub">HUAYU INFOTECH</span>
+        </div>
+      </div>
+    </div>
+    <div class="card-info">
+      <h2>方案 D — 弧線 H（動態感）</h2>
+      <div class="tag-row">
+        <span class="tag">現代</span><span class="tag">活潑</span><span class="tag">獨特</span>
+      </div>
+      <p>H 的橫槓改為向上弧線，象徵「業務成長曲線」與「數位轉型」。右上角亮點星形點綴，增加科技質感與活潑感。</p>
+      <div class="swatches">
+        <div class="swatch" style="background:#2B7BE5"></div>
+        <div class="swatch" style="background:#93c5fd"></div>
+        <div class="swatch" style="background:#ffffff"></div>
+        <span class="swatch-label">品牌藍 + 弧線設計</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== E ===== -->
+  <div class="card">
+    <div class="preview">
+      <div class="logo-wrap" style="flex-direction:column; gap:10px; align-items:center;">
+        <svg width="180" height="56" viewBox="0 0 180 56" fill="none" xmlns="http://www.w3.org/2000/svg" style="position:relative;z-index:1;">
+          <!-- 華 left segment -->
+          <text x="0" y="42" font-family="-apple-system,'PingFang TC','Noto Sans TC',sans-serif" font-weight="900" font-size="44" fill="url(#e-grad)">華宇</text>
+          <!-- Tech dot -->
+          <circle cx="100" cy="8" r="4" fill="#2B7BE5" opacity="0.7"/>
+          <!-- INFOTECH small -->
+          <text x="108" y="26" font-family="-apple-system,sans-serif" font-weight="600" font-size="13" letter-spacing="2" fill="#2B7BE5">INFOTECH</text>
+          <!-- Underline gradient bar -->
+          <rect x="108" y="30" width="66" height="2.5" rx="1.5" fill="url(#e-line)"/>
+          <!-- Small descriptors -->
+          <text x="108" y="45" font-family="-apple-system,sans-serif" font-weight="400" font-size="10.5" letter-spacing="1.5" fill="#5f7a9e">資訊科技</text>
+          <defs>
+            <linearGradient id="e-grad" x1="0" y1="0" x2="100" y2="56" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#2B7BE5"/>
+              <stop offset="1" stop-color="#1E5CB3"/>
+            </linearGradient>
+            <linearGradient id="e-line" x1="108" y1="0" x2="174" y2="0" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#2B7BE5"/>
+              <stop offset="1" stop-color="#93c5fd" stop-opacity="0"/>
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
+    </div>
+    <div class="card-info">
+      <h2>方案 E — 全漢字品牌字型</h2>
+      <div class="tag-row">
+        <span class="tag">文字型</span><span class="tag">雙語</span><span class="tag">大器</span>
+      </div>
+      <p>以「華宇」二字為主視覺，搭配英文 INFOTECH 及漸層底線，形成中英雙語的完整識別系統。適合橫式 Banner、提案封面、公司簡介使用。</p>
+      <div class="swatches">
+        <div class="swatch" style="background:#2B7BE5"></div>
+        <div class="swatch" style="background:#1E5CB3"></div>
+        <div class="swatch" style="background:#E8F3FF"></div>
+        <span class="swatch-label">中英雙語 + 漸層字</span>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- Usage notes -->
+<div style="max-width:1100px;margin:48px auto 0;background:#fff;border-radius:20px;border:1.5px solid #dce8fb;padding:32px 36px;box-shadow:0 4px 24px rgba(43,123,229,0.07);">
+  <h2 style="font-size:1.05rem;font-weight:700;color:#1E5CB3;margin-bottom:16px;">📐 使用場景建議</h2>
+  <table style="width:100%;border-collapse:collapse;font-size:0.85rem;color:#374a6a;">
+    <thead>
+      <tr style="border-bottom:2px solid #E8F3FF;">
+        <th style="text-align:left;padding:8px 12px;color:#5f7a9e;font-weight:600;">方案</th>
+        <th style="text-align:left;padding:8px 12px;color:#5f7a9e;font-weight:600;">官網 Navbar</th>
+        <th style="text-align:left;padding:8px 12px;color:#5f7a9e;font-weight:600;">名片 / 印刷</th>
+        <th style="text-align:left;padding:8px 12px;color:#5f7a9e;font-weight:600;">App Icon</th>
+        <th style="text-align:left;padding:8px 12px;color:#5f7a9e;font-weight:600;">深色背景</th>
+        <th style="text-align:left;padding:8px 12px;color:#5f7a9e;font-weight:600;">PPT / 提案</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="border-bottom:1px solid #f0f6ff;"><td style="padding:8px 12px;font-weight:600;">A</td><td style="padding:8px 12px;">⭐⭐⭐⭐⭐</td><td style="padding:8px 12px;">⭐⭐⭐⭐</td><td style="padding:8px 12px;">⭐⭐⭐⭐⭐</td><td style="padding:8px 12px;">⭐⭐⭐</td><td style="padding:8px 12px;">⭐⭐⭐⭐</td></tr>
+      <tr style="border-bottom:1px solid #f0f6ff;"><td style="padding:8px 12px;font-weight:600;">B</td><td style="padding:8px 12px;">⭐⭐⭐⭐</td><td style="padding:8px 12px;">⭐⭐⭐⭐</td><td style="padding:8px 12px;">⭐⭐⭐⭐⭐</td><td style="padding:8px 12px;">⭐⭐⭐⭐</td><td style="padding:8px 12px;">⭐⭐⭐⭐</td></tr>
+      <tr style="border-bottom:1px solid #f0f6ff;"><td style="padding:8px 12px;font-weight:600;">C</td><td style="padding:8px 12px;">⭐⭐⭐</td><td style="padding:8px 12px;">⭐⭐⭐</td><td style="padding:8px 12px;">⭐⭐⭐⭐</td><td style="padding:8px 12px;">⭐⭐⭐⭐⭐</td><td style="padding:8px 12px;">⭐⭐⭐⭐⭐</td></tr>
+      <tr style="border-bottom:1px solid #f0f6ff;"><td style="padding:8px 12px;font-weight:600;">D</td><td style="padding:8px 12px;">⭐⭐⭐⭐⭐</td><td style="padding:8px 12px;">⭐⭐⭐⭐</td><td style="padding:8px 12px;">⭐⭐⭐⭐⭐</td><td style="padding:8px 12px;">⭐⭐⭐</td><td style="padding:8px 12px;">⭐⭐⭐⭐</td></tr>
+      <tr><td style="padding:8px 12px;font-weight:600;">E</td><td style="padding:8px 12px;">⭐⭐⭐⭐</td><td style="padding:8px 12px;">⭐⭐⭐⭐⭐</td><td style="padding:8px 12px;">⭐⭐</td><td style="padding:8px 12px;">⭐⭐</td><td style="padding:8px 12px;">⭐⭐⭐⭐⭐</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<footer>
+  <p>華宇資訊科技 — 品牌識別設計稿 · 請選定方案後告知，可進一步輸出 SVG / PNG 格式</p>
+</footer>
+
+</body>
+</html>

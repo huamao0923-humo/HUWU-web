@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install:*)",
+      "Bash(npx tsc:*)",
+      "Bash(ls -la \"c:/Users/weihung/Desktop/every project/HUWUWEB/\"*.db)",
+      "Bash(npm list:*)",
+      "Bash(node -e \"require\\('@payloadcms/richtext-lexical/react'\\)\")",
+      "WebFetch(domain:railway.app)",
+      "WebFetch(domain:docs.railway.app)",
+      "WebFetch(domain:railway.com)",
+      "WebFetch(domain:docs.railway.com)",
+      "Bash(npm uninstall:*)"
+    ]
+  }
+}

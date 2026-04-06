@@ -1,0 +1,54 @@
+<svg width="240" height="48" viewBox="0 0 240 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="icon-grad" x1="0" y1="0" x2="44" y2="44" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#2B7BE5"/>
+      <stop offset="1" stop-color="#1E5CB3"/>
+    </linearGradient>
+    <linearGradient id="text-grad" x1="56" y1="0" x2="180" y2="48" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#2B7BE5"/>
+      <stop offset="1" stop-color="#1E5CB3"/>
+    </linearGradient>
+    <linearGradient id="divider-grad" x1="56" y1="0" x2="200" y2="0" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#2B7BE5"/>
+      <stop offset="1" stop-color="#2B7BE5" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <!-- D-style icon: rounded square -->
+  <rect x="2" y="2" width="44" height="44" rx="12" fill="url(#icon-grad)"/>
+
+  <!-- H left bar -->
+  <rect x="13" y="12" width="4.5" height="24" rx="2.2" fill="white"/>
+  <!-- H right bar -->
+  <rect x="30.5" y="12" width="4.5" height="24" rx="2.2" fill="white"/>
+  <!-- H crossbar arc (upward curve = growth) -->
+  <path d="M17.5 22 Q24 17.5 30.5 22" stroke="white" stroke-width="4" stroke-linecap="round" fill="none"/>
+
+  <!-- Sparkle dot top-right of icon -->
+  <circle cx="41" cy="8" r="2.5" fill="#93c5fd"/>
+
+  <!-- Main text: 華　宇 (Medium 500, letter-spacing) -->
+  <text
+    x="62"
+    y="31"
+    font-family="-apple-system, 'PingFang TC', 'Noto Sans TC', 'Microsoft JhengHei', sans-serif"
+    font-weight="500"
+    font-size="22"
+    letter-spacing="5"
+    fill="url(#text-grad)"
+  >華　宇</text>
+
+  <!-- Divider line -->
+  <rect x="62" y="35.5" width="112" height="1.5" rx="0.75" fill="url(#divider-grad)"/>
+
+  <!-- Sub text: INFOTECH · 資訊科技 -->
+  <text
+    x="63"
+    y="45"
+    font-family="-apple-system, 'PingFang TC', 'Noto Sans TC', sans-serif"
+    font-weight="500"
+    font-size="9"
+    letter-spacing="2"
+    fill="#5B9FE0"
+  >INFOTECH · 資訊科技</text>
+</svg>

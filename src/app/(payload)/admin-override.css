@@ -1,0 +1,455 @@
+/* ============================================================
+   華宇資訊科技 — Payload Admin 全面視覺優化
+   ============================================================ */
+
+/* ── 1. 強制 Light Theme ── */
+html,
+html[data-theme="dark"],
+html[data-theme="light"],
+html:not([data-theme]) {
+  color-scheme: light !important;
+}
+
+/* ── 2. CSS 變數覆蓋（品牌色 + 淺色系） ── */
+:root,
+html {
+  /* 品牌主色 */
+  --color-base-0: #ffffff;
+  --color-base-50: #f8faff;
+  --color-base-100: #f0f6ff;
+  --color-base-150: #e3eeff;
+  --color-base-200: #d0e4ff;
+  --color-base-250: #9cb8e8;
+  --color-base-300: #6b90c4;
+  --color-base-350: #4a72a8;
+  --color-base-400: #2c5490;
+  --color-base-450: #1e3d70;
+  --color-base-500: #132850;
+  --color-base-550: #0e1e3d;
+  --color-base-600: #09142a;
+  --color-base-650: #050d1c;
+  --color-base-700: #030810;
+  --color-base-750: #020508;
+  --color-base-800: #010204;
+  --color-base-850: #000000;
+  --color-base-900: #000000;
+  --color-base-950: #000000;
+  --color-base-1000: #000000;
+
+  /* 品牌色 */
+  --color-brand-initial: #1A6BD9;
+  --color-brand: #1A6BD9;
+  --color-error: #ef4444;
+  --color-error-light: #fef2f2;
+  --color-success: #10b981;
+  --color-success-light: #ecfdf5;
+  --color-warning: #f59e0b;
+  --color-warning-light: #fffbeb;
+
+  /* theme-bg 系列 */
+  --theme-bg: #f8faff !important;
+  --theme-input-bg: #ffffff !important;
+  --theme-elevation-0: #ffffff !important;
+  --theme-elevation-50: #f8faff !important;
+  --theme-elevation-100: #f0f6ff !important;
+  --theme-elevation-150: #e3eeff !important;
+  --theme-elevation-200: #d0e4ff !important;
+  --theme-elevation-250: #9cb8e8 !important;
+  --theme-elevation-300: #4a72a8 !important;
+  --theme-elevation-400: #1e3d70 !important;
+  --theme-elevation-500: #132850 !important;
+  --theme-elevation-800: #09142a !important;
+  --theme-elevation-1000: #030810 !important;
+  --theme-text: #1e293b !important;
+
+  /* 字型 */
+  --font-body: system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono: 'SF Mono', 'Fira Code', monospace;
+}
+
+/* ── 3. 全站基礎 ── */
+body {
+  background: #f0f6ff !important;
+  color: #1e293b !important;
+  font-family: var(--font-body) !important;
+}
+
+/* ── 4. 側邊欄 ── */
+.nav {
+  background: #ffffff !important;
+  border-right: 1px solid #e0ecff !important;
+  box-shadow: 2px 0 12px rgba(26,107,217,0.06) !important;
+}
+
+/* 側邊欄 Logo 區 */
+.nav .nav__header,
+.nav__header {
+  background: linear-gradient(135deg, #1A6BD9 0%, #1150A8 100%) !important;
+  padding: 18px 20px !important;
+  border-bottom: none !important;
+}
+
+/* 側邊欄所有連結 */
+.nav__link,
+.nav a,
+nav a {
+  color: #374151 !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  border-radius: 8px !important;
+  margin: 1px 8px !important;
+  padding: 8px 12px !important;
+  transition: all 0.15s !important;
+  text-decoration: none !important;
+}
+
+.nav__link:hover,
+.nav a:hover,
+nav a:hover {
+  background: #e8f3ff !important;
+  color: #1A6BD9 !important;
+}
+
+.nav__link--active,
+.nav a[aria-current="page"] {
+  background: #dbeafe !important;
+  color: #1A6BD9 !important;
+  font-weight: 600 !important;
+}
+
+/* 側邊欄分組標題 */
+.nav__label,
+[class*="nav__group"] > span,
+[class*="nav__group"] > button {
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.08em !important;
+  color: #94a3b8 !important;
+  text-transform: uppercase !important;
+  padding: 12px 20px 4px !important;
+}
+
+/* ── 5. 頂部 Header / Breadcrumb ── */
+.render-title,
+[class*="render-title"] {
+  font-size: 22px !important;
+  font-weight: 800 !important;
+  color: #0f172a !important;
+  letter-spacing: -0.3px !important;
+}
+
+/* Breadcrumb bar */
+[class*="step-nav"],
+.step-nav {
+  background: #ffffff !important;
+  border-bottom: 1px solid #e0ecff !important;
+  padding: 12px 24px !important;
+}
+
+/* ── 6. 主內容區 ── */
+.collection-list,
+.dashboard,
+[class*="collection-list__"],
+.gutter--left {
+  background: #f0f6ff !important;
+}
+
+/* ── 7. 卡片 / 白色容器 ── */
+.card,
+[class*="card__"],
+.render-fields,
+[class*="render-fields"],
+.form-submit,
+[class*="list-header"],
+[class*="list-controls"],
+.list-header,
+.table-wrap,
+[class*="table-wrap"] {
+  background: #ffffff !important;
+  border: 1px solid #e0ecff !important;
+  border-radius: 14px !important;
+  box-shadow: 0 2px 12px rgba(26,107,217,0.06) !important;
+}
+
+/* ── 8. 表格 ── */
+table {
+  background: #ffffff !important;
+  border-radius: 14px !important;
+  overflow: hidden !important;
+  border-collapse: separate !important;
+  border-spacing: 0 !important;
+}
+
+thead tr,
+thead th {
+  background: #f8faff !important;
+  color: #64748b !important;
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.06em !important;
+  border-bottom: 1px solid #e0ecff !important;
+  padding: 12px 16px !important;
+}
+
+tbody tr {
+  border-bottom: 1px solid #f1f7ff !important;
+  transition: background 0.12s !important;
+}
+
+tbody tr:hover {
+  background: #f5f9ff !important;
+}
+
+tbody td {
+  padding: 12px 16px !important;
+  color: #334155 !important;
+  font-size: 14px !important;
+}
+
+tbody tr:last-child {
+  border-bottom: none !important;
+}
+
+/* ── 9. 輸入框 / 選單 ── */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+input[type="search"],
+input[type="url"],
+input[type="tel"],
+textarea,
+select,
+.field-type input,
+[class*="text-input__"],
+[class*="textarea__"] {
+  background: #f8faff !important;
+  border: 1.5px solid #d0e4ff !important;
+  border-radius: 9px !important;
+  color: #1e293b !important;
+  font-size: 14px !important;
+  padding: 10px 14px !important;
+  transition: border-color 0.2s, box-shadow 0.2s !important;
+  outline: none !important;
+}
+
+input:focus,
+textarea:focus,
+select:focus,
+[class*="text-input__"]:focus-within,
+[class*="textarea__"]:focus-within {
+  border-color: #1A6BD9 !important;
+  box-shadow: 0 0 0 3px rgba(26,107,217,0.12) !important;
+  background: #ffffff !important;
+}
+
+/* ── 10. 標籤 / Label ── */
+label,
+.label,
+[class*="field-label"] {
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  color: #374151 !important;
+  margin-bottom: 6px !important;
+}
+
+/* ── 11. 按鈕 ── */
+/* Primary */
+.btn,
+button[class*="btn--style-primary"],
+[class*="pill--style-light"],
+.pill {
+  border-radius: 9px !important;
+  font-weight: 600 !important;
+  font-size: 13px !important;
+  transition: all 0.15s !important;
+}
+
+button[class*="btn--style-primary"],
+.btn--style-primary {
+  background: linear-gradient(135deg, #1A6BD9 0%, #1150A8 100%) !important;
+  color: #ffffff !important;
+  border: none !important;
+  box-shadow: 0 2px 8px rgba(26,107,217,0.25) !important;
+  padding: 9px 18px !important;
+  border-radius: 9px !important;
+}
+
+button[class*="btn--style-primary"]:hover,
+.btn--style-primary:hover {
+  opacity: 0.9 !important;
+  box-shadow: 0 4px 14px rgba(26,107,217,0.35) !important;
+}
+
+/* Secondary */
+button[class*="btn--style-secondary"],
+.btn--style-secondary {
+  background: #f0f6ff !important;
+  color: #1A6BD9 !important;
+  border: 1.5px solid #c7dfff !important;
+  border-radius: 9px !important;
+  padding: 9px 18px !important;
+}
+
+button[class*="btn--style-secondary"]:hover {
+  background: #e0ecff !important;
+}
+
+/* ── 12. 搜尋列 ── */
+[class*="search-filter"],
+.search-filter,
+[class*="list-controls__search"] {
+  background: #f0f6ff !important;
+  border-radius: 12px !important;
+  padding: 12px 16px !important;
+  border: 1px solid #e0ecff !important;
+  margin-bottom: 16px !important;
+}
+
+[class*="search-filter"] input,
+.search-filter input {
+  background: #ffffff !important;
+  border: 1.5px solid #d0e4ff !important;
+  border-radius: 9px !important;
+  padding: 8px 12px 8px 36px !important;
+}
+
+/* ── 13. Pagination / 分頁 ── */
+[class*="pagination"],
+.pagination {
+  background: #f8faff !important;
+  border-top: 1px solid #e0ecff !important;
+  padding: 12px 16px !important;
+  border-radius: 0 0 14px 14px !important;
+}
+
+/* ── 14. 狀態 Badge / Pill ── */
+[class*="status-dot"],
+.status-dot {
+  border-radius: 999px !important;
+}
+
+/* ── 15. 彈出 / Drawer / Modal ── */
+[class*="drawer__"],
+.drawer {
+  background: #ffffff !important;
+  box-shadow: -4px 0 32px rgba(26,107,217,0.12) !important;
+}
+
+[class*="modal__"],
+.modal {
+  background: #ffffff !important;
+  border-radius: 18px !important;
+  box-shadow: 0 20px 60px rgba(26,107,217,0.15) !important;
+}
+
+/* ── 16. 頁面標題列 ── */
+[class*="list-header__"],
+.list-header {
+  background: #ffffff !important;
+  border-radius: 14px 14px 0 0 !important;
+  padding: 18px 24px !important;
+  border-bottom: 1px solid #e0ecff !important;
+}
+
+[class*="list-header__"] h1,
+.list-header h1 {
+  font-size: 20px !important;
+  font-weight: 800 !important;
+  color: #0f172a !important;
+}
+
+/* ── 17. Create New / Bulk Upload 按鈕 ── */
+[class*="list-header"] a,
+[class*="list-header"] button {
+  border-radius: 9px !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+}
+
+/* ── 18. Rich Text Editor ── */
+[class*="rich-text"],
+.rich-text-editor {
+  background: #ffffff !important;
+  border: 1.5px solid #d0e4ff !important;
+  border-radius: 12px !important;
+}
+
+/* ── 19. Scrollbar 美化 ── */
+* {
+  scrollbar-width: thin !important;
+  scrollbar-color: #c7dfff #f0f6ff !important;
+}
+
+*::-webkit-scrollbar {
+  width: 6px !important;
+  height: 6px !important;
+}
+
+*::-webkit-scrollbar-track {
+  background: #f0f6ff !important;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: #c7dfff !important;
+  border-radius: 999px !important;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: #1A6BD9 !important;
+}
+
+/* ── 20. 選取狀態 ── */
+::selection {
+  background: rgba(26,107,217,0.15) !important;
+  color: #0f172a !important;
+}
+
+/* ── 21. No Results 空狀態 ── */
+[class*="no-results"],
+.no-results {
+  background: #f8faff !important;
+  border: 2px dashed #c7dfff !important;
+  border-radius: 14px !important;
+  padding: 48px !important;
+  text-align: center !important;
+  color: #64748b !important;
+}
+
+/* ── 22. 上傳區域 ── */
+[class*="file-details"],
+[class*="upload__"] {
+  background: #f8faff !important;
+  border: 2px dashed #c7dfff !important;
+  border-radius: 12px !important;
+}
+
+[class*="file-details"]:hover,
+[class*="upload__"]:hover {
+  border-color: #1A6BD9 !important;
+  background: #e8f3ff !important;
+}
+
+/* ── 23. 通知 / Toast ── */
+[class*="toast"],
+.toast {
+  border-radius: 12px !important;
+  box-shadow: 0 8px 24px rgba(26,107,217,0.15) !important;
+}
+
+/* ── 24. 欄位間距優化 ── */
+[class*="field-type"] {
+  margin-bottom: 20px !important;
+}
+
+/* ── 25. 頁面整體 padding ── */
+.gutter--left,
+[class*="gutter--left"] {
+  padding-left: 24px !important;
+}
+
+.gutter--right,
+[class*="gutter--right"] {
+  padding-right: 24px !important;
+}

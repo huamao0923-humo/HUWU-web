@@ -1,0 +1,129 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --brand-50: #E3F0FF;
+    --brand-100: #C7E1FF;
+    --brand-400: #3D8ED4;
+    --brand-500: #1A6BD9;
+    --brand-600: #1150A8;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply text-gray-800 bg-white antialiased;
+    font-family: var(--font-noto-sans-tc), system-ui, sans-serif;
+    font-weight: 300; /* Noto Sans TC Light — 輕盈內文 */
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold leading-tight;
+    font-family: var(--font-outfit), system-ui, sans-serif; /* Outfit — 商務信賴感標題 */
+    font-weight: 700;
+  }
+}
+
+@layer components {
+  /* Glass morphism navbar */
+  .navbar-glass {
+    @apply bg-white/80 backdrop-blur-md border-b border-white/20;
+  }
+
+  /* Brand gradient button */
+  .btn-primary {
+    @apply inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-white;
+    background: linear-gradient(135deg, #1A6BD9 0%, #1150A8 100%);
+    @apply hover:opacity-90 active:scale-[0.98] transition-all duration-200 shadow-md hover:shadow-lg;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-brand-600 bg-white border border-brand-200;
+    @apply hover:bg-brand-50 active:scale-[0.98] transition-all duration-200;
+  }
+
+  .btn-outline-white {
+    @apply inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-white border-2 border-white/60;
+    @apply hover:bg-white/20 active:scale-[0.98] transition-all duration-200;
+  }
+
+  /* Cards */
+  .card {
+    @apply bg-white rounded-2xl border border-gray-100 shadow-card hover:shadow-card-hover transition-all duration-300;
+  }
+
+  .card-glass {
+    @apply bg-white/90 backdrop-blur-md rounded-2xl border border-white/60 shadow-glass;
+  }
+
+  /* Section */
+  .section-padding {
+    @apply py-16 md:py-24;
+  }
+
+  .container-custom {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  /* Badge */
+  .badge-pill {
+    @apply inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-sm font-medium;
+    @apply bg-brand-50 text-brand-600 border border-brand-200/60;
+  }
+
+  /* Dot pattern background */
+  .dot-pattern {
+    background-image: radial-gradient(circle, rgba(43, 123, 229, 0.12) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+
+  /* Hero gradient */
+  .hero-gradient {
+    background: linear-gradient(135deg, #D5E9FF 0%, #A4CEFF 50%, #2C7DD0 100%);
+  }
+
+  /* Section title */
+  .section-title {
+    @apply text-3xl md:text-4xl font-bold text-gray-900;
+    font-family: var(--font-outfit), system-ui, sans-serif;
+  }
+
+  .section-subtitle {
+    @apply text-lg text-gray-500 mt-3 max-w-2xl;
+    font-family: var(--font-noto-sans-tc), sans-serif;
+    font-weight: 300;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    background: linear-gradient(135deg, #1A6BD9 0%, #1150A8 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .animate-delay-100 { animation-delay: 100ms; }
+  .animate-delay-200 { animation-delay: 200ms; }
+  .animate-delay-300 { animation-delay: 300ms; }
+  .animate-delay-400 { animation-delay: 400ms; }
+}
+
+/* Rich text styles */
+.rich-text h1 { @apply text-3xl font-bold mb-4 mt-8; font-family: var(--font-outfit), system-ui, sans-serif; }
+.rich-text h2 { @apply text-2xl font-bold mb-3 mt-6; font-family: var(--font-outfit), system-ui, sans-serif; }
+.rich-text h3 { @apply text-xl font-semibold mb-2 mt-4; font-family: var(--font-outfit), system-ui, sans-serif; }
+.rich-text p { @apply mb-4 leading-relaxed text-gray-600; font-weight: 300; }
+.rich-text ul { @apply list-disc pl-6 mb-4 space-y-1 text-gray-600; }
+.rich-text ol { @apply list-decimal pl-6 mb-4 space-y-1 text-gray-600; }
+.rich-text a { @apply text-brand-500 hover:underline; }
+.rich-text blockquote { @apply border-l-4 border-brand-400 pl-4 italic text-gray-500 my-4; }
+.rich-text code { @apply bg-gray-100 rounded px-1 py-0.5 text-sm font-mono; }
+.rich-text pre { @apply bg-gray-900 text-gray-100 rounded-xl p-4 overflow-x-auto mb-4; }
+.rich-text pre code { @apply bg-transparent; }
+.rich-text img { @apply rounded-xl my-6 w-full; }
+.rich-text hr { @apply border-gray-200 my-8; }

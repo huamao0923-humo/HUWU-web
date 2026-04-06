@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>華宇 LOGO — D+E 字體方案</title>
+
+  <!-- Google Fonts: 繁體中文多種字體 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&family=Noto+Serif+TC:wght@400;600;700;900&family=Noto+Sans+SC:wght@300;500;700;900&family=ZCOOL+XiaoWei&family=ZCOOL+QingKe+HuangYou&display=swap" rel="stylesheet" />
+
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Noto Sans TC', -apple-system, sans-serif;
+      background: #F0F6FF;
+      color: #1a2a4a;
+      min-height: 100vh;
+      padding: 48px 20px;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+    header h1 {
+      font-size: 1.8rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, #2B7BE5, #1E5CB3);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 8px;
+    }
+    header p { font-size: 0.9rem; color: #5f7a9e; }
+
+    .section-label {
+      max-width: 960px;
+      margin: 0 auto 16px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      color: #2B7BE5;
+      text-transform: uppercase;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 22px;
+      max-width: 960px;
+      margin: 0 auto 48px;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 18px;
+      border: 1.5px solid #dce8fb;
+      box-shadow: 0 4px 24px rgba(43,123,229,0.07);
+      overflow: hidden;
+      transition: box-shadow 0.2s, transform 0.2s;
+      cursor: pointer;
+    }
+    .card:hover {
+      box-shadow: 0 8px 40px rgba(43,123,229,0.16);
+      transform: translateY(-3px);
+    }
+    .card.selected {
+      border-color: #2B7BE5;
+      box-shadow: 0 0 0 3px rgba(43,123,229,0.2), 0 8px 32px rgba(43,123,229,0.18);
+    }
+
+    /* Preview panels */
+    .preview {
+      padding: 36px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 140px;
+      position: relative;
+      overflow: hidden;
+    }
+    .preview::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(circle, rgba(43,123,229,0.09) 1px, transparent 1px);
+      background-size: 20px 20px;
+    }
+    .preview.light  { background: linear-gradient(135deg, #E8F3FF 0%, #cce0ff 100%); }
+    .preview.white  { background: #fff; border-bottom: 1.5px solid #e8f0fb; }
+    .preview.dark   { background: linear-gradient(135deg, #0d1f3e 0%, #183068 100%); }
+    .preview.warmwhite { background: linear-gradient(135deg, #f8faff 0%, #e8f3ff 100%); }
+
+    /* Logo layout: icon + text */
+    .logo-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ── D icon (same across all) ── */
+    .d-icon { flex-shrink: 0; filter: drop-shadow(0 4px 10px rgba(43,123,229,0.3)); }
+
+    /* ── E text block variants ── */
+    .e-text { display: flex; flex-direction: column; justify-content: center; }
+
+    .main-name {
+      line-height: 1.1;
+      background: linear-gradient(135deg, #2B7BE5 0%, #1E5CB3 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .main-name.dark-ver {
+      background: linear-gradient(135deg, #7dc3ff 0%, #93c5fd 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+    }
+    .main-name.dark-solid {
+      background: none;
+      -webkit-text-fill-color: #ffffff;
+      color: #ffffff;
+    }
+
+    .sub-en {
+      font-family: -apple-system, 'Segoe UI', sans-serif;
+      font-size: 0.6rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      color: #5B9FE0;
+      margin-top: 2px;
+      text-transform: uppercase;
+    }
+    .sub-en.light-sub { color: #93c5fd; }
+    .sub-en.gray-sub  { color: #8ea8c3; }
+
+    .divider-line {
+      width: 100%;
+      height: 1.5px;
+      background: linear-gradient(to right, #2B7BE5, transparent);
+      margin: 3px 0;
+    }
+    .divider-line.light { background: linear-gradient(to right, #93c5fd, transparent); }
+
+    /* card info */
+    .card-info { padding: 16px 20px 20px; }
+    .card-info h2 { font-size: 0.9rem; font-weight: 700; color: #1a2a4a; margin-bottom: 6px; }
+    .tag-row { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 8px; }
+    .tag {
+      font-size: 0.68rem; font-weight: 600;
+      padding: 2px 9px; border-radius: 999px;
+      background: #E8F3FF; color: #2B7BE5; border: 1px solid #b3d4ff;
+    }
+    .tag.serif-tag { background: #fff7ed; color: #c2640a; border-color: #fcd9a8; }
+    .tag.dark-tag  { background: #e8f3ff; color: #2B7BE5; border-color: #b3d4ff; }
+    .card-info p { font-size: 0.82rem; color: #5f7a9e; line-height: 1.6; }
+
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>D + E 組合 — 字體方案</h1>
+  <p>左側使用方案 D 的弧線 H 圖示，右側測試不同中文字體與排版風格</p>
+</header>
+
+<!-- ────────────── SECTION 1: 無襯線 Sans-serif ────────────── -->
+<p class="section-label">無襯線字體 Sans-serif</p>
+<div class="grid">
+
+  <!-- F1: Noto Sans TC 900 Black -->
+  <div class="card">
+    <div class="preview light">
+      <div class="logo-row">
+        <svg class="d-icon" width="44" height="44" viewBox="0 0 44 44" fill="none">
+          <rect x="2" y="2" width="40" height="40" rx="12" fill="url(#dg1)"/>
+          <rect x="12" y="11" width="4.5" height="22" rx="2.2" fill="white"/>
+          <rect x="27.5" y="11" width="4.5" height="22" rx="2.2" fill="white"/>
+          <path d="M16.5 20.5 Q22 16 27.5 20.5" stroke="white" stroke-width="4" stroke-linecap="round" fill="none"/>
+          <circle cx="35" cy="9" r="2.5" fill="#93c5fd"/>
+          <defs><linearGradient id="dg1" x1="2" y1="2" x2="42" y2="42" gradientUnits="userSpaceOnUse"><stop stop-color="#2B7BE5"/><stop offset="1" stop-color="#1E5CB3"/></linearGradient></defs>
+        </svg>
+        <div class="e-text">
+          <span class="main-name" style="font-family:'Noto Sans TC',sans-serif;font-weight:900;font-size:1.55rem;">華宇</span>
+          <div class="divider-line"></div>
+          <span class="sub-en">INFOTECH · 資訊科技</span>
+        </div>
+      </div>
+    </div>
+    <div class="card-info">
+      <h2>F1 — Noto Sans TC Black 900</h2>
+      <div class="tag-row"><span class="tag">超黑體</span><span class="tag">有力</span><span class="tag">現代</span></div>
+      <p>最粗的重量，視覺衝擊強，品牌辨識度高，適合官網 Hero 區域或大型看板。</p>
+    </div>
+  </div>
+
+  <!-- F2: Noto Sans TC 500 Medium + wide spacing -->
+  <div class="card">
+    <div class="preview white">
+      <div class="logo-row">
+        <svg class="d-icon" width="44" height="44" viewBox="0 0 44 44" fill="none">
+          <rect x="2" y="2" width="40" height="40" rx="12" fill="url(#dg2)"/>
+          <rect x="12" y="11" width="4.5" height="22" rx="2.2" fill="white"/>
+          <rect x="27.5" y="11" width="4.5" height="22" rx="2.2" fill="white"/>
+          <path d="M16.5 20.5 Q22 16 27.5 20.5" stroke="white" stroke-width="4" stroke-linecap="round" fill="none"/>
+          <circle cx="35" cy="9" r="2.5" fill="#93c5fd"/>
+          <defs><linearGradient id="dg2" x1="2" y1="2" x2="42" y2="42" gradientUnits="userSpaceOnUse"><stop stop-color="#2B7BE5"/><stop offset="1" stop-color="#1E5CB3"/></linearGradient></defs>
+        </svg>
+        <div class="e-text">
+          <span class="main-name" style="font-family:'Noto Sans TC',sans-serif;font-weight:500;font-size:1.45rem;letter-spacing:0.15em;">華　宇</span>
+          <div class="divider-line"></div>
+          <span class="sub-en gray-sub">INFOTECH · 資訊科技</span>
+        </div>
+      </div>
+    </div>
+    <div class="card-info">
+      <h2>F2 — Noto Sans TC Medium + 字距</h2>
+      <div class="tag-row"><span class="tag">寬鬆字距</span><span class="tag">大器</span><span class="tag">高端</span></div>
+      <p>Medium 字重配合加大字距，氣質從容大器，適合顧問、科技服務等高端定位。</p>
+    </div>
+  </div>
+
+  <!-- F3: Noto Sans TC 300 Light -->
+  <div class="card">
+    <div class="preview warmwhite">
+      <div class="logo-row">
+        <svg class="d-icon" width="44" height="44" viewBox="0 0 44 44" fill="none">
+          <rect x="2" y="2" width="40" height="40" rx="12" fill="url(#dg3)"/>
+          <rect x="12" y="11" width="4.5" height="22" rx="2.2" fill="white"/>
+          <rect x="27.5" y="11" width="4.5" height="22" rx="2.2" fill="white"/>
+          <path d="M16.5 20.5 Q22 16 27.5 20.5" stroke="white" stroke-width="4" stroke-linecap="round" fill="none"/>
+          <circle cx="35" cy="9" r="2.5" fill="#93c5fd"/>
+          <defs><linearGradient id="dg3" x1="2" y1="2" x2="42" y2="42" gradientUnits="userSpaceOnUse"><stop stop-color="#2B7BE5"/><stop offset="1" stop-color="#1E5CB3"/></linearGradient></defs>
+        </svg>
+        <div class="e-text">
+          <span class="main-name" style="font-family:'Noto Sans TC',sans-serif;font-weight:300;font-size:1.6rem;letter-spacing:0.06em;">華宇</span>
+          <div class="divider-line"></div>
+          <span class="sub-en">INFOTECH · 資訊科技</span>
+        </div>
+      </div>
+    </div>
+    <div class="card-info">
+      <h2>F3 — Noto Sans TC Light 300</h2>
+      <div class="tag-row"><span class="tag">細體</span><span class="tag">簡約</span><span class="tag">國際感</span></div>
+      <p>極細字重，呈現輕盈現代感，類似國際頂尖設計公司的 LOGO 風格。整體形象優雅簡潔。</p>
+    </div>
+  </div>
+
+  <!-- F4: Mixed weight 華(900) 宇(300) -->
+  <div class="card">
+    <div class="preview light">
+      <div class="logo-row">
+        <svg class="d-icon" width="44" height="44" viewBox="0 0 44 44" fill="none">
+          <rect x="2" y="2" width="40" height="40" rx="12" fill="url(#dg4)"/>
+          <rect x="12" y="11" width="4.5" height="22" rx="2.2" fill="white"/>
+          <rect x="27.5" y="11" width="4.5" height="22" rx="2.2" fill="white"/>
+          <path d="M16.5 20.5 Q22 16 27.5 20.5" stroke="white" stroke-width="4" stroke-linecap="round" fill="none"/>
+          <circle cx="35" cy="9" r="2.5" fill="#93c5fd"/>
+          <defs><linearGradient id="dg4" x1="2" y1="2" x2="42" y2="42" gradientUnits="userSpaceOnUse"><stop stop-color="#2B7BE5"/><stop offset="1" stop-color="#1E5CB3"/></linearGradient></defs>
+        </svg>
+        <div class="e-text">
+          <div style="display:flex;align-items:baseline;gap:2px;">
+            <span class="main-name" style="font-family:'Noto Sans TC',sans-serif;font-weight:900;font-size:1.65rem;">華</span>
+            <span class="main-name" style="font-family:'Noto Sans TC',sans-serif;font-weight:300;font-size:1.65rem;">宇</span>
+          </div>
+          <div class="divider-line"></div>
+          <span class="sub-en">INFOTECH · 資訊科技</span>
+        </div>
+      </div>
+    </div>
+    <div class="card-info">
+      <h2>F4 — 混合字重 黑 + 細</h2>
+      <div class="tag-row"><span class="tag">對比感</span><span class="tag">設計感</span><span class="tag">獨特</span></div>
+      <p>「華」用超黑體、「宇」用細體，強烈對比製造視覺層次，設計感最強、記憶點最高。</p>
+    </div>
+  </div>
+
+</div>
+
+<!-- ────────────── SECTION 2: 有襯線／書法 Serif ────────────── -->
+<p class="section-label">有襯線 / 書法字體 Serif & Calligraphy</p>
+<div class="grid">
+
+  <!-- F5: Noto Serif TC Bold -->
+  <div class="card">
+    <div class="preview white">
+      <div class="logo-row">
+        <svg class="d-icon" width="44" height="44" viewBox="0 0 44 44" fill="none">
+          <rect x="2" y="2" width="40" height="40" rx="12" fill="url(#dg5)"/>
+          <rect x="12" y="11" width="4.5" height="22" rx="2.2" fill="white"/>
+          <rect x="27.5" y="11" width="4.5" height="22" rx="2.2" fill="white"/>
+          <path d="M16.5 20.5 Q22 16 27.5 20.5" stroke="white" stroke-width="4" stroke-linecap="round" fill="none"/>
+          <circle cx="35" cy="9" r="2.5" fill="#93c5fd"/>
+          <defs><linearGradient id="dg5" x1="2" y1="2" x2="42" y2="42" gradientUnits="userSpaceOnUse"><stop stop-color="#2B7BE5"/><stop offset="1" stop-color="#1E5CB3"/></linearGradient></defs>
+        </svg>
+        <div class="e-text">
+          <span class="main-name" style="font-family:'Noto Serif TC',serif;font-weight:700;font-size:1.5rem;letter-spacing:0.04em;">華宇</span>
+          <div class="divider-line"></div>
+          <span class="sub-en gray-sub">INFOTECH · 資訊科技</span>
+        </div>
+      </div>
+    </div>
+    <div class="card-info">
+      <h2>F5 — Noto Serif TC Bold（宋體）</h2>
+      <div class="tag-row"><span class="tag serif-tag">宋體</span><span class="tag serif-tag">文化底蘊</span><span class="tag serif-tag">典雅</span></div>
+      <p>宋體帶來傳統文化底蘊，與科技圖示形成反差美學，適合想強調「台灣在地品牌」形象的定位。</p>
+    </div>
+  </div>
+
+  <!-- F6: Noto Serif TC 900 Black -->
+  <div class="card">
+    <div class="preview light">
+      <div class="logo-row">
+        <svg class="d-icon" width="44" height="44" viewBox="0 0 44 44" fill="none">
+          <rect x="2" y="2" width="40" height="40" rx="12" fill="url(#dg6)"/>
+          <rect x="12" y="11" width="4.5" height="22" rx="2.2" fill="white"/>
+          <rect x="27.5" y="11" width="4.5" height="22" rx="2.2" fill="white"/>
+          <path d="M16.5 20.5 Q22 16 27.5 20.5" stroke="white" stroke-width="4" stroke-linecap="round" fill="none"/>
+          <circle cx="35" cy="9" r="2.5" fill="#93c5fd"/>
+          <defs><linearGradient id="dg6" x1="2" y1="2" x2="42" y2="42" gradientUnits="userSpaceOnUse"><stop stop-color="#2B7BE5"/><stop offset="1" stop-color="#1E5CB3"/></linearGradient></defs>
+        </svg>
+        <div class="e-text">
+          <span class="main-name" style="font-family:'Noto Serif TC',serif;font-weight:900;font-size:1.5rem;">華宇</span>
+          <div class="divider-line"></div>
+          <span class="sub-en">INFOTECH · 資訊科技</span>
+        </div>
+      </div>
+    </div>
+    <div class="card-info">
+      <h2>F6 — Noto Serif TC Black 900（粗宋）</h2>
+      <div class="tag-row"><span class="tag serif-tag">粗宋</span><span class="tag serif-tag">強勢</span><span class="tag serif-tag">歷史感</span></div>
+      <p>粗宋體極具視覺張力，傳遞「深厚底蘊 × 現代科技」的矛盾美感。辨識度極高。</p>
+    </div>
+  </div>
+
+  <!-- F7: ZCOOL XiaoWei 站酷小薇 (書法感) -->
+  <div class="card">
+    <div class="preview warmwhite">
+      <div class="logo-row">
+        <svg class="d-icon" width="44" height="44" viewBox="0 0 44 44" fill="none">
+          <rect x="2" y="2" width="40" height="40" rx="12" fill="url(#dg7)"/>
+          <rect x="12" y="11" width="4.5" height="22" rx="2.2" fill="white"/>
+          <rect x="27.5" y="11" width="4.5" height="22" rx="2.2" fill="white"/>
+          <path d="M16.5 20.5 Q22 16 27.5 20.5" stroke="white" stroke-width="4" stroke-linecap="round" fill="none"/>
+          <circle cx="35" cy="9" r="2.5" fill="#93c5fd"/>
+          <defs><linearGradient id="dg7" x1="2" y1="2" x2="42" y2="42" gradientUnits="userSpaceOnUse"><stop stop-color="#2B7BE5"/><stop offset="1" stop-color="#1E5CB3"/></linearGradient></defs>
+        </svg>
+        <div class="e-text">
+          <span class="main-name" style="font-family:'ZCOOL XiaoWei',serif;font-size:1.6rem;letter-spacing:0.05em;">華宇</span>
+          <div class="divider-line"></div>
+          <span class="sub-en gray-sub">INFOTECH · 資訊科技</span>
+        </div>
+      </div>
+    </div>
+    <div class="card-info">
+      <h2>F7 — 站酷小薇（手寫書法感）</h2>
+      <div class="tag-row"><span class="tag serif-tag">書法感</span><span class="tag serif-tag">溫度</span><span class="tag serif-tag">人文</span></div>
+      <p>帶有書法筆觸的現代字體，融合人文溫度與數位感，適合想與冷硬科技公司做出差異化的品牌。</p>
+    </div>
+  </div>
+
+  <!-- F8: ZCOOL QingKe HuangYou -->
+  <div class="card">
+    <div class="preview light">
+      <div class="logo-row">
+        <svg class="d-icon" width="44" height="44" viewBox="0 0 44 44" fill="none">
+          <rect x="2" y="2" width="40" height="40" rx="12" fill="url(#dg8)"/>
+          <rect x="12" y="11" width="4.5" height="22" rx="2.2" fill="white"/>
+          <rect x="27.5" y="11" width="4.5" height="22" rx="2.2" fill="white"/>
+          <path d="M16.5 20.5 Q22 16 27.5 20.5" stroke="white" stroke-width="4" stroke-linecap="round" fill="none"/>
+          <circle cx="35" cy="9" r="2.5" fill="#93c5fd"/>
+          <defs><linearGradient id="dg8" x1="2" y1="2" x2="42" y2="42" gradientUnits="userSpaceOnUse"><stop stop-color="#2B7BE5"/><stop offset="1" stop-color="#1E5CB3"/></linearGradient></defs>
+        </svg>
+        <div class="e-text">
+          <span class="main-name" style="font-family:'ZCOOL QingKe HuangYou',cursive;font-size:1.65rem;letter-spacing:0.03em;">華宇</span>
+          <div class="divider-line"></div>
+          <span class="sub-en">INFOTECH · 資訊科技</span>
+        </div>
+      </div>
+    </div>
+    <div class="card-info">
+      <h2>F8 — 站酷慶科黃油體（活潑圓潤）</h2>
+      <div class="tag-row"><span class="tag">活潑</span><span class="tag">親和力</span><span class="tag">年輕</span></div>
+      <p>圓潤飽滿的字形，親和力強、記憶點高，適合主打中小企業客群或想傳遞「友善夥伴」形象的品牌。</p>
+    </div>
+  </div>
+
+</div>
+
+<!-- ────────────── SECTION 3: 深色背景 ────────────── -->
+<p class="section-label">深色底版本（Night Mode）</p>
+<div class="grid" style="grid-template-columns:repeat(auto-fill, minmax(280px, 1fr));">
+
+  <!-- F-dark 1 -->
+  <div class="card">
+    <div class="preview dark">
+      <div class="logo-row">
+        <svg class="d-icon" width="44" height="44" viewBox="0 0 44 44" fill="none" style="filter:drop-shadow(0 4px 14px rgba(91,159,224,0.5))">
+          <rect x="2" y="2" width="40" height="40" rx="12" fill="url(#dgd1)"/>
+          <rect x="12" y="11" width="4.5" height="22" rx="2.2" fill="white"/>
+          <rect x="27.5" y="11" width="4.5" height="22" rx="2.2" fill="white"/>
+          <path d="M16.5 20.5 Q22 16 27.5 20.5" stroke="white" stroke-width="4" stroke-linecap="round" fill="none"/>
+          <circle cx="35" cy="9" r="2.5" fill="#93c5fd"/>
+          <defs><linearGradient id="dgd1" x1="2" y1="2" x2="42" y2="42" gradientUnits="userSpaceOnUse"><stop stop-color="#5B9FE0"/><stop offset="1" stop-color="#2B7BE5"/></linearGradient></defs>
+        </svg>
+        <div class="e-text">
+          <span class="main-name dark-ver" style="font-family:'Noto Sans TC',sans-serif;font-weight:900;font-size:1.55rem;">華宇</span>
+          <div class="divider-line light"></div>
+          <span class="sub-en light-sub">INFOTECH · 資訊科技</span>
+        </div>
+      </div>
+    </div>
+    <div class="card-info">
+      <h2>深色 × Sans Black</h2>
+      <div class="tag-row"><span class="tag dark-tag">深色背景</span><span class="tag dark-tag">發光感</span></div>
+      <p>Noto Sans Black 900 搭配深色底，藍色發光效果，適合深色模式 Navbar 或科技大會 Splash Screen。</p>
+    </div>
+  </div>
+
+  <!-- F-dark 2 -->
+  <div class="card">
+    <div class="preview dark">
+      <div class="logo-row">
+        <svg class="d-icon" width="44" height="44" viewBox="0 0 44 44" fill="none" style="filter:drop-shadow(0 4px 14px rgba(91,159,224,0.5))">
+          <rect x="2" y="2" width="40" height="40" rx="12" fill="url(#dgd2)"/>
+          <rect x="12" y="11" width="4.5" height="22" rx="2.2" fill="white"/>
+          <rect x="27.5" y="11" width="4.5" height="22" rx="2.2" fill="white"/>
+          <path d="M16.5 20.5 Q22 16 27.5 20.5" stroke="white" stroke-width="4" stroke-linecap="round" fill="none"/>
+          <circle cx="35" cy="9" r="2.5" fill="#93c5fd"/>
+          <defs><linearGradient id="dgd2" x1="2" y1="2" x2="42" y2="42" gradientUnits="userSpaceOnUse"><stop stop-color="#5B9FE0"/><stop offset="1" stop-color="#2B7BE5"/></linearGradient></defs>
+        </svg>
+        <div class="e-text">
+          <span class="main-name dark-solid" style="font-family:'Noto Serif TC',serif;font-weight:700;font-size:1.5rem;letter-spacing:0.05em;">華宇</span>
+          <div class="divider-line light"></div>
+          <span class="sub-en light-sub">INFOTECH · 資訊科技</span>
+        </div>
+      </div>
+    </div>
+    <div class="card-info">
+      <h2>深色 × Serif Bold</h2>
+      <div class="tag-row"><span class="tag dark-tag">深色背景</span><span class="tag serif-tag">典雅</span></div>
+      <p>白色宋體在深色底上格外有質感，科技感與文化感並存，非常適合公司正式場合使用。</p>
+    </div>
+  </div>
+
+</div>
+
+<div style="max-width:960px;margin:16px auto 0;background:#fff;border-radius:16px;border:1.5px solid #dce8fb;padding:20px 28px;font-size:0.82rem;color:#5f7a9e;line-height:1.7;">
+  💡 <strong style="color:#2B7BE5;">使用提示：</strong>字體需要網路才能顯示（Google Fonts）。若要嵌入網站，請在 Next.js 中引入對應的 <code style="background:#E8F3FF;padding:1px 6px;border-radius:4px;color:#1E5CB3;">next/font/google</code>。確認選擇後，我可以幫你輸出最終 SVG 檔案或直接整合進 Navbar 元件。
+</div>
+
+</body>
+</html>

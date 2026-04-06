@@ -1,0 +1,27 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm:*)", "Bash(npx:*)", "Bash(node:*)",
+      "Bash(pnpm:*)", "Bash(yarn:*)", "Bash(turbo:*)",
+      "Bash(python:*)", "Bash(python3:*)", "Bash(pip:*)", "Bash(pip3:*)",
+      "Bash(ls:*)", "Bash(cat:*)", "Bash(echo:*)", "Bash(mkdir:*)",
+      "Bash(cp:*)", "Bash(mv:*)", "Bash(rm:*)", "Bash(find:*)",
+      "Bash(grep:*)", "Bash(sed:*)", "Bash(awk:*)", "Bash(curl:*)",
+      "Bash(touch:*)", "Bash(chmod:*)", "Bash(ps:*)", "Bash(kill:*)",
+      "Bash(export:*)", "Bash(env:*)", "Bash(which:*)", "Bash(pwd:*)",
+      "Bash(cd:*)", "Bash(type:*)", "Bash(source:*)",
+      "Bash(git add:*)", "Bash(git commit:*)", "Bash(git status:*)",
+      "Bash(git log:*)", "Bash(git diff:*)", "Bash(git checkout:*)",
+      "Bash(git switch:*)", "Bash(git branch:*)", "Bash(git merge:*)",
+      "Bash(git rebase:*)", "Bash(git fetch:*)", "Bash(git pull:*)",
+      "Bash(git clone:*)", "Bash(git stash:*)", "Bash(git reset:*)",
+      "Bash(git restore:*)", "Bash(git tag:*)", "Bash(git remote:*)",
+      "Bash(git init:*)", "Bash(git config:*)", "Bash(git show:*)",
+      "Bash(git blame:*)", "Bash(git clean:*)", "Bash(git rm:*)",
+      "Bash(git mv:*)", "Bash(gh:*)", "Bash(railway:*)",
+      "Read(*)", "Write(*)", "Edit(*)", "Glob(*)", "Grep(*)",
+      "WebFetch(*)", "WebSearch(*)"
+    ],
+    "deny": []
+  }
+}
