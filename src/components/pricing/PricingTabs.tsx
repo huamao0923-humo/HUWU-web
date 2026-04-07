@@ -53,7 +53,7 @@ export default function PricingTabs({ tabs }: { tabs: PricingTab[] }) {
           className={`grid grid-cols-1 gap-6 ${getGridCols(activeTab.plans.length)}`}
         >
           {activeTab.plans.map((plan) => (
-            <PlanCard key={plan.id} plan={plan} />
+            <PlanCard key={plan.id} plan={plan} serviceId={activeTab.id} />
           ))}
         </div>
 

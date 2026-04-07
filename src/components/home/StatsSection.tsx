@@ -111,9 +111,9 @@ function CountUp({ value }: { value: string }) {
 export default function StatsSection({ stats }: StatsSectionProps) {
   const defaultStats: Stat[] = [
     { value: '200+', label: '完成專案', icon: '🎯' },
-    { value: '98%',  label: '客戶滿意', icon: '⭐' },
+    { value: '96%',  label: '客戶滿意', icon: '⭐' },
     { value: '14天', label: '平均交付', icon: '🚀' },
-    { value: '8年',  label: '專業經驗', icon: '💎' },
+    { value: '6年',  label: '專業經驗', icon: '💎' },
   ]
 
   const displayStats = stats?.length ? stats : defaultStats

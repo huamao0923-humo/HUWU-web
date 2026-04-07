@@ -11,7 +11,6 @@ const navLinks = [
   { href: '/services', label: '服務項目' },
   { href: '/portfolio', label: '成功案例' },
   { href: '/pricing', label: '方案報價' },
-  { href: '/blog', label: '部落格' },
   { href: '/about', label: '關於我們' },
 ]
 

@@ -250,6 +250,50 @@ UAT 階段發現了一個邊界條件的計算 bug——當業務剛好達標 10
     demoAvailable: false,
   },
   {
+    id: 'static-pm-pilot',
+    slug: 'pm-pilot',
+    title: '專案管理系統',
+    client: 'Humo 自建 SaaS 產品',
+    category: 'system',
+    shortDescription: '專為 3–10 人小型團隊設計的智能專案協作中樞，整合會議記錄、檔案版控、看板任務與 AI 語意問答，讓溝通到執行不再斷層。',
+    fullDescription: `這個系統的起點是一個很常見的問題——我們自己團隊在跑多個專案的時候，決議總是散在 LINE 群組、會議記錄丟在各人的 Word，任務在誰身上、進度到哪了，每次追問都要多開幾個視窗才能拼出完整答案。我們試過 Notion、Trello、Asana，每一個單獨用都不錯，但組合起來反而多了一堆要手動同步的縫隙。
+
+決定自己做的那天，我們設了一個前提：所有東西要在同一個地方關聯起來——會議裡的決議要能直接變成任務，任務要能掛上里程碑，里程碑要能知道進度，檔案的每一次更版要有 commit message 可以追。這條鏈不能斷。
+
+智慧會議室是整個系統的起點。以前的痛點不是沒有記錄，是記錄完之後那份 Word 就死了，決議跟行動完全脫節。現在在會議記錄裡直接建立 Action Item，系統會自動轉成任務並指派負責人，任務卡片上也標記了來源會議，任何人點進去都能回溯當天的討論脈絡。
+
+檔案版控這塊我們參考了 Git 的概念。上傳同名檔案時系統不覆蓋，而是把舊版封存成 v1、新版標為 v2（Current），並強制填寫更新摘要。這個強制很關鍵——有了 commit message 之後，AI 才能讀這些脈絡自動生成週報。Audit Log 記錄每一筆操作，主管可以在行事曆熱點圖上一眼看出哪幾天團隊最活躍、哪個時段有異常沉寂。
+
+AI 的部分我們刻意放到最後才做，因為 AI 需要養分。先把會議、檔案、任務的資料都跑起來之後，再用 pgvector 做語意搜尋，讓成員可以問「上次討論 API 串接是哪次會議？」、「這個月設計稿改了幾個版本？」——系統直接定位，不用翻歷史紀錄。`,
+    techTags: [
+      { tag: 'Next.js 14' },
+      { tag: 'TypeScript' },
+      { tag: 'Supabase' },
+      { tag: 'Tailwind CSS' },
+      { tag: 'Shadcn UI' },
+      { tag: 'OpenAI API' },
+      { tag: 'pgvector' },
+    ],
+    results: [
+      { metric: '決議執行追蹤率', value: '↑ 90%', description: '會議 Action Items 自動轉任務，不再遺漏' },
+      { metric: '跨工具切換次數', value: '↓ 75%', description: '會議、檔案、任務全在同一平台' },
+      { metric: '週報產出時間', value: '2小時 → 10分鐘', description: 'AI 自動彙整，人工微調即完成' },
+    ],
+    featured: true,
+    publishedAt: '2025-03-20',
+    demoAvailable: true,
+    demoUrl: 'https://pm-pilot.up.railway.app',
+    coverImage: { url: '/screenshots/pm-pilot/dashboard.jpg', alt: 'PM Pilot 專案管理系統 - 戰情總覽' },
+    images: [
+      { image: { url: '/screenshots/pm-pilot/dashboard.jpg', alt: '戰情總覽 Dashboard' } },
+      { image: { url: '/screenshots/pm-pilot/meetings.jpg', alt: '智慧會議室' } },
+      { image: { url: '/screenshots/pm-pilot/meeting-records.jpg', alt: 'Action Items 轉任務' } },
+      { image: { url: '/screenshots/pm-pilot/files.jpg', alt: '檔案版控稽核' } },
+      { image: { url: '/screenshots/pm-pilot/tasks.jpg', alt: '看板任務管理' } },
+      { image: { url: '/screenshots/pm-pilot/reports.jpg', alt: '報表與 AI 分析' } },
+    ],
+  },
+  {
     id: 'static-tech-startup-website',
     slug: 'tech-startup-website',
     title: '科技新創企業官網',

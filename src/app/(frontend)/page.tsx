@@ -2,11 +2,7 @@ import type { Metadata } from 'next'
 import { unstable_cache } from 'next/cache'
 import { getPayloadClient } from '@/lib/payload'
 import HeroSection from '@/components/home/HeroSection'
-import StatsSection from '@/components/home/StatsSection'
-import MarqueeSection from '@/components/home/MarqueeSection'
-import ServicesSection from '@/components/home/ServicesSection'
 import ProcessSection from '@/components/home/ProcessSection'
-import PortfolioSection from '@/components/home/PortfolioSection'
 import WhyUsSection from '@/components/home/WhyUsSection'
 import TechStackSection from '@/components/home/TechStackSection'
 import TestimonialsSection from '@/components/home/TestimonialsSection'
@@ -45,11 +41,7 @@ export default async function HomePage() {
   return (
     <>
       <HeroSection data={homeSettings as any} />
-      <StatsSection stats={(homeSettings as any)?.stats || []} />
-      <MarqueeSection />
-      <ServicesSection services={services as any[]} />
       <ProcessSection />
-      <PortfolioSection items={portfolio as any[]} />
       <WhyUsSection />
       <TechStackSection />
       <TestimonialsSection testimonials={testimonials as any[]} />

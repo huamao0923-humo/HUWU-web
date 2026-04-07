@@ -40,7 +40,7 @@ export const pricingTabs: PricingTab[] = [
           'RWD 響應式設計',
           '動畫效果（基礎）',
           'SEO 基礎優化',
-          '部署上線（Vercel）',
+          '部署上線（Railway）',
         ],
         maintenance: ['免費維護 1 個月', 'Bug 修復支援'],
         maintenanceFee: '續約維護月費 NT$ 800 / 月',
@@ -60,7 +60,7 @@ export const pricingTabs: PricingTab[] = [
           'SEO 完整優化',
           'Google Analytics 串接',
         ],
-        maintenance: ['免費維護 2 個月', '每月 1 次內容更新', 'Vercel 效能監控'],
+        maintenance: ['免費維護 2 個月', '每月 1 次內容更新', 'Railway 效能監控'],
         maintenanceFee: '續約維護月費 NT$ 1,200 / 月',
       },
       {
@@ -77,7 +77,7 @@ export const pricingTabs: PricingTab[] = [
           'CMS 內容管理（Payload CMS）',
           '多語言支援',
         ],
-        maintenance: ['免費維護 3 個月', '每月 2 次內容更新', 'Vercel 效能監控 + 月報'],
+        maintenance: ['免費維護 3 個月', '每月 2 次內容更新', 'Railway 效能監控 + 月報'],
         maintenanceFee: '續約維護月費 NT$ 1,500 / 月',
       },
       {

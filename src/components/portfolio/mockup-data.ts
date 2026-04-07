@@ -10,6 +10,7 @@ export const MOCKUP_COUNTS: Record<string, number> = {
   'law-firm-website':         4,
   'medical-clinic-website':   4,
   'tech-startup-website':     4,
+  'pm-pilot':                 0,
 }
 
 export const MOCKUP_LABELS: Record<string, string[]> = {
@@ -24,6 +25,7 @@ export const MOCKUP_LABELS: Record<string, string[]> = {
   'law-firm-website':         ['事務所形象首頁', '服務項目介紹', '律師團隊頁面', '線上聯絡表單'],
   'medical-clinic-website':   ['診所形象首頁', '科別服務列表', '醫師團隊介紹', '線上掛號入口'],
   'tech-startup-website':     ['科技感首頁 Hero', '產品功能特點', '定價方案頁面', '英文版首頁'],
+  'pm-pilot':                 ['戰情總覽 Dashboard', '智慧會議室', 'Action Items 轉任務', '檔案版控稽核', '看板任務管理', 'AI Copilot 語意問答'],
 }
 
 export const MOCKUP_DESCS: Record<string, string[]> = {
@@ -94,6 +96,14 @@ export const MOCKUP_DESCS: Record<string, string[]> = {
     '功能特點區以圖示搭配短句呈現三到四個核心賣點，方便投資人與採購方快速掃瞄。',
     '定價方案頁面突顯推薦方案，各方案差異一欄對比，CTA 按鈕引導進入試用申請流程。',
     '英文版首頁獨立 SEO 設定，用詞針對東南亞 B2B 市場調整，避免直譯造成的閱讀障礙。',
+  ],
+  'pm-pilot': [
+    '仿 GitHub Contribution 的熱點圖行事曆，顏色深淺代表當天的團隊活躍程度；右側 KPI 卡片即時顯示進行中專案數、延遲數與本週待辦 Action Items，管理者不需要點進任何專案就能掌握全局。',
+    '會議記錄以結構化表單呈現，參與者自動帶入團隊成員名單，時間、地點填完後直接進入決議事項區塊；每一條決議右側都有「轉為任務」按鈕，讓記錄與執行在同一個頁面完成。',
+    'Action Items 列表顯示本次會議產出的所有待辦項目，可即時指派負責人與截止日；確認後系統自動在看板新增任務卡片，任務卡片上會標記來源會議，點擊可跳回當天記錄。',
+    '檔案列表以虛擬資料夾分類呈現，每筆檔案顯示目前版本號（v2 Current）、上傳者與更新摘要；點擊「版本歷史」可看到完整的版本時間軸，誰在什麼時間做了什麼改動一覽無遺。',
+    '看板以 To Do / In Progress / Review / Done 四欄呈現，支援拖曳更改狀態；任務卡片顯示優先級色標、負責人頭像與關聯里程碑，讓每張卡片的脈絡在不點開的情況下就能理解。',
+    'AI 對話框輸入自然語言問題，系統透過 pgvector 語意搜尋定位相關會議記錄或任務，回答下方附上來源段落與連結，讓成員確認 AI 是從哪份資料得出結論，而不是憑空生成。',
   ],
 }
 

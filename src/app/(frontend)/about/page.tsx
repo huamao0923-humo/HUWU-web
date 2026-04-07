@@ -85,33 +85,91 @@ export default async function AboutPage() {
               <h2 className="section-title mb-6">從一個夢想開始</h2>
               <div className="space-y-4 text-gray-600 leading-relaxed">
                 <p>
-                  2016 年，華宇資訊科技由幾位在大型科技公司歷練多年的工程師共同創立。
+                  2020 年，華宇資訊科技由幾位在大型科技公司歷練多年的工程師共同創立。
                   我們看到台灣中小企業在數位化轉型路上的困境：要麼找不到合適的技術合作夥伴，
                   要麼報價高得令人卻步，要麼交付品質參差不齊。
                 </p>
                 <p>
-                  帶著「讓每一家企業都能負擔得起高品質數位化」的使命，我們從三人小團隊，
-                  一路成長為擁有完整專業分工的精英團隊，累積超過 200 個成功案例，
-                  橫跨零售、餐飲、金融、醫療、教育等多個產業。
-                </p>
-                <p>
-                  我們相信，好的技術夥伴不只是幫你寫程式，而是真正理解你的業務需求，
-                  用最合適的技術解法幫助你達成商業目標。
+                  帶著「讓每一家企業都能負擔得起高品質數位化」的使命，累積超過 30 個成功案例導入案例，
+                  橫跨零售、餐飲、金融、醫療、教育等多個產業。我們相信，好的技術夥伴不只是幫你寫程式，
+                  而是真正理解你的業務需求，用最合適的技術解法幫助你達成商業目標。
                 </p>
               </div>
             </div>
             <div className="relative">
-              <div className="aspect-square bg-gradient-to-br from-brand-50 to-brand-100 rounded-3xl flex items-center justify-center">
-                <div className="text-8xl">🚀</div>
+              <div className="aspect-square bg-gradient-to-br from-brand-50 via-blue-50 to-indigo-100 rounded-3xl flex items-center justify-center overflow-hidden">
+                {/* Professional Tech SVG Icon */}
+                <svg viewBox="0 0 240 240" className="w-44 h-44" fill="none">
+                  <defs>
+                    <linearGradient id="techGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor="#0ea5e9" />
+                      <stop offset="100%" stopColor="#2563eb" />
+                    </linearGradient>
+                    <linearGradient id="techGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor="#1e40af" />
+                      <stop offset="100%" stopColor="#4f46e5" />
+                    </linearGradient>
+                    <filter id="glow">
+                      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                      <feMerge>
+                        <feMergeNode in="coloredBlur"/>
+                        <feMergeNode in="SourceGraphic"/>
+                      </feMerge>
+                    </filter>
+                  </defs>
+
+                  {/* Outer ring */}
+                  <circle cx="120" cy="120" r="115" fill="none" stroke="url(#techGrad1)" strokeWidth="2" opacity="0.3"/>
+                  <circle cx="120" cy="120" r="105" fill="none" stroke="url(#techGrad2)" strokeWidth="1.5" opacity="0.5"/>
+
+                  {/* Main background circle */}
+                  <circle cx="120" cy="120" r="100" fill="url(#techGrad1)" opacity="0.95"/>
+
+                  {/* Central tech element - interconnected nodes */}
+                  <g filter="url(#glow)">
+                    {/* Top node */}
+                    <circle cx="120" cy="65" r="8" fill="white"/>
+                    {/* Left node */}
+                    <circle cx="75" cy="110" r="8" fill="white"/>
+                    {/* Right node */}
+                    <circle cx="165" cy="110" r="8" fill="white"/>
+                    {/* Center node */}
+                    <circle cx="120" cy="130" r="10" fill="white"/>
+                    {/* Bottom node */}
+                    <circle cx="120" cy="175" r="8" fill="white"/>
+                  </g>
+
+                  {/* Connection lines */}
+                  <line x1="120" y1="73" x2="120" y2="120" stroke="white" strokeWidth="2" opacity="0.8"/>
+                  <line x1="114" y1="73" x2="82" y2="108" stroke="white" strokeWidth="2" opacity="0.7"/>
+                  <line x1="126" y1="73" x2="158" y2="108" stroke="white" strokeWidth="2" opacity="0.7"/>
+                  <line x1="75" y1="118" x2="110" y2="130" stroke="white" strokeWidth="2" opacity="0.7"/>
+                  <line x1="165" y1="118" x2="130" y2="130" stroke="white" strokeWidth="2" opacity="0.7"/>
+                  <line x1="120" y1="140" x2="120" y2="167" stroke="white" strokeWidth="2" opacity="0.8"/>
+
+                  {/* Code brackets symbols */}
+                  <g fill="none" stroke="white" strokeWidth="2" opacity="0.6">
+                    {/* Left bracket */}
+                    <path d="M 50 100 L 50 140 M 50 100 L 60 100 M 50 140 L 60 140"/>
+                    {/* Right bracket */}
+                    <path d="M 190 100 L 190 140 M 190 100 L 180 100 M 190 140 L 180 140"/>
+                  </g>
+
+                  {/* Decorative elements - small circles */}
+                  <circle cx="40" cy="50" r="2.5" fill="white" opacity="0.5"/>
+                  <circle cx="200" cy="55" r="2" fill="white" opacity="0.4"/>
+                  <circle cx="45" cy="190" r="2" fill="white" opacity="0.4"/>
+                  <circle cx="195" cy="185" r="2.5" fill="white" opacity="0.5"/>
+                </svg>
               </div>
               {/* Stats overlay */}
               <div className="absolute -bottom-4 -left-4 card-glass px-6 py-4">
-                <div className="text-2xl font-bold text-gray-900">2016</div>
+                <div className="text-2xl font-bold text-gray-900">2020</div>
                 <div className="text-sm text-gray-500">年創立</div>
               </div>
               <div className="absolute -top-4 -right-4 card-glass px-6 py-4">
-                <div className="text-2xl font-bold text-gray-900">200+</div>
-                <div className="text-sm text-gray-500">完成專案</div>
+                <div className="text-2xl font-bold text-gray-900">30+</div>
+                <div className="text-sm text-gray-500">導入案例</div>
               </div>
             </div>
           </div>
