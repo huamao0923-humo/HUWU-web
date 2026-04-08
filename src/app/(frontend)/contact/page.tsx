@@ -30,10 +30,10 @@ const getSettings = unstable_cache(
 export default async function ContactPage() {
   const settings = await getSettings() as any
 
-  const email = settings?.email || 'info@huwu.com.tw'
-  const phone = settings?.phone || '+886-2-XXXX-XXXX'
-  const address = settings?.address || '台北市信義區XX路XX號XX樓'
-  const lineId = settings?.lineId || '@huwuweb'
+  const email = settings?.email || 'huamoa0923@gmail.com'
+  const phone = settings?.phone || '+886-900611682'
+  const address = settings?.address || '台中市北屯區軍榮街330號'
+  const lineId = settings?.lineId || 'wayhome0515'
 
   return (
     <div className="pt-20">
