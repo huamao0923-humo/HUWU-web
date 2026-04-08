@@ -100,31 +100,18 @@ export default async function AboutPage() {
               <div className="aspect-[5/4] bg-gradient-to-br from-slate-900 via-blue-950 to-indigo-950 rounded-3xl overflow-hidden">
                 <svg viewBox="0 0 400 320" className="w-full h-full" fill="none">
                   <defs>
-                    <linearGradient id="hGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                      <stop offset="0%" stopColor="#3b82f6" />
-                      <stop offset="100%" stopColor="#6366f1" />
-                    </linearGradient>
-                    <linearGradient id="glowBg" x1="50%" y1="0%" x2="50%" y2="100%">
-                      <stop offset="0%" stopColor="#1d4ed8" stopOpacity="0.4" />
-                      <stop offset="100%" stopColor="#4338ca" stopOpacity="0.1" />
+                    {/* Exact logo gradient matching LogoIcon.tsx */}
+                    <linearGradient id="logoSquareGrad" x1="0" y1="0" x2="1" y2="1">
+                      <stop offset="0%" stopColor="#1A6BD9" />
+                      <stop offset="100%" stopColor="#1150A8" />
                     </linearGradient>
                     <radialGradient id="centerGlow" cx="50%" cy="50%" r="50%">
-                      <stop offset="0%" stopColor="#3b82f6" stopOpacity="0.35" />
-                      <stop offset="100%" stopColor="#3b82f6" stopOpacity="0" />
+                      <stop offset="0%" stopColor="#1A6BD9" stopOpacity="0.4" />
+                      <stop offset="100%" stopColor="#1A6BD9" stopOpacity="0" />
                     </radialGradient>
-                    <filter id="logoGlow" x="-40%" y="-40%" width="180%" height="180%">
-                      <feGaussianBlur stdDeviation="10" result="blur"/>
-                      <feMerge>
-                        <feMergeNode in="blur"/>
-                        <feMergeNode in="SourceGraphic"/>
-                      </feMerge>
-                    </filter>
-                    <filter id="subtleGlow" x="-20%" y="-20%" width="140%" height="140%">
-                      <feGaussianBlur stdDeviation="4" result="blur"/>
-                      <feMerge>
-                        <feMergeNode in="blur"/>
-                        <feMergeNode in="SourceGraphic"/>
-                      </feMerge>
+                    {/* Glow filter — only used on a separate blurred copy behind the logo */}
+                    <filter id="behindGlow" x="-50%" y="-50%" width="200%" height="200%">
+                      <feGaussianBlur stdDeviation="14"/>
                     </filter>
                     <clipPath id="cardClip">
                       <rect width="400" height="320" rx="24"/>
@@ -132,76 +119,65 @@ export default async function AboutPage() {
                   </defs>
 
                   <g clipPath="url(#cardClip)">
-                    {/* Background grid */}
-                    <g stroke="#3b82f6" strokeWidth="0.6" opacity="0.08">
-                      {[50,100,150,200,250,300,350].map(x => (
-                        <line key={x} x1={x} y1="0" x2={x} y2="320"/>
-                      ))}
-                      {[40,80,120,160,200,240,280].map(y => (
-                        <line key={y} x1="0" y1={y} x2="400" y2={y}/>
-                      ))}
+                    {/* Background dot grid */}
+                    <g fill="#3b82f6" opacity="0.07">
+                      {[50,100,150,200,250,300,350].flatMap(x =>
+                        [40,80,120,160,200,240,280].map(y => (
+                          <circle key={`${x}-${y}`} cx={x} cy={y} r="1"/>
+                        ))
+                      )}
                     </g>
 
                     {/* Center radial glow */}
-                    <circle cx="200" cy="160" r="160" fill="url(#centerGlow)"/>
+                    <circle cx="200" cy="160" r="170" fill="url(#centerGlow)"/>
 
-                    {/* Outer orbit rings */}
+                    {/* Orbit rings */}
                     <circle cx="200" cy="160" r="148" fill="none" stroke="#6366f1" strokeWidth="1" opacity="0.15" strokeDasharray="6 6"/>
-                    <circle cx="200" cy="160" r="125" fill="none" stroke="#3b82f6" strokeWidth="1" opacity="0.2"/>
-                    <circle cx="200" cy="160" r="100" fill="none" stroke="#6366f1" strokeWidth="0.8" opacity="0.25" strokeDasharray="3 5"/>
+                    <circle cx="200" cy="160" r="122" fill="none" stroke="#3b82f6" strokeWidth="1" opacity="0.22"/>
+                    <circle cx="200" cy="160" r="96"  fill="none" stroke="#6366f1" strokeWidth="0.8" opacity="0.2" strokeDasharray="3 6"/>
 
-                    {/* Corner bracket decorations — top-left */}
-                    <g stroke="#60a5fa" strokeWidth="1.8" opacity="0.5" strokeLinecap="round">
-                      <path d="M 24 52 L 24 24 L 52 24"/>
-                    </g>
-                    {/* top-right */}
-                    <g stroke="#818cf8" strokeWidth="1.8" opacity="0.5" strokeLinecap="round">
-                      <path d="M 348 24 L 376 24 L 376 52"/>
-                    </g>
-                    {/* bottom-left */}
-                    <g stroke="#60a5fa" strokeWidth="1.8" opacity="0.5" strokeLinecap="round">
-                      <path d="M 24 268 L 24 296 L 52 296"/>
-                    </g>
-                    {/* bottom-right */}
-                    <g stroke="#818cf8" strokeWidth="1.8" opacity="0.5" strokeLinecap="round">
-                      <path d="M 348 296 L 376 296 L 376 268"/>
-                    </g>
+                    {/* Corner brackets */}
+                    <path d="M24 52 L24 24 L52 24"   stroke="#60a5fa" strokeWidth="1.8" strokeLinecap="round" opacity="0.5"/>
+                    <path d="M348 24 L376 24 L376 52" stroke="#818cf8" strokeWidth="1.8" strokeLinecap="round" opacity="0.5"/>
+                    <path d="M24 268 L24 296 L52 296" stroke="#60a5fa" strokeWidth="1.8" strokeLinecap="round" opacity="0.5"/>
+                    <path d="M348 296 L376 296 L376 268" stroke="#818cf8" strokeWidth="1.8" strokeLinecap="round" opacity="0.5"/>
 
-                    {/* Subtle circuit traces */}
-                    <g stroke="#3b82f6" strokeWidth="1" opacity="0.2" strokeLinecap="round">
-                      <path d="M 24 100 L 70 100 L 70 130"/>
-                      <path d="M 376 100 L 330 100 L 330 130"/>
-                      <path d="M 24 220 L 70 220 L 70 190"/>
-                      <path d="M 376 220 L 330 220 L 330 190"/>
-                    </g>
-                    <circle cx="70" cy="130" r="2.5" fill="#3b82f6" opacity="0.4"/>
-                    <circle cx="330" cy="130" r="2.5" fill="#6366f1" opacity="0.4"/>
-                    <circle cx="70" cy="190" r="2.5" fill="#3b82f6" opacity="0.4"/>
-                    <circle cx="330" cy="190" r="2.5" fill="#6366f1" opacity="0.4"/>
+                    {/* Circuit traces */}
+                    <path d="M24 100 L70 100 L70 130"   stroke="#3b82f6" strokeWidth="1" strokeLinecap="round" opacity="0.18"/>
+                    <path d="M376 100 L330 100 L330 130" stroke="#3b82f6" strokeWidth="1" strokeLinecap="round" opacity="0.18"/>
+                    <path d="M24 220 L70 220 L70 190"   stroke="#3b82f6" strokeWidth="1" strokeLinecap="round" opacity="0.18"/>
+                    <path d="M376 220 L330 220 L330 190" stroke="#3b82f6" strokeWidth="1" strokeLinecap="round" opacity="0.18"/>
+                    <circle cx="70"  cy="130" r="2.5" fill="#3b82f6" opacity="0.35"/>
+                    <circle cx="330" cy="130" r="2.5" fill="#6366f1" opacity="0.35"/>
+                    <circle cx="70"  cy="190" r="2.5" fill="#3b82f6" opacity="0.35"/>
+                    <circle cx="330" cy="190" r="2.5" fill="#6366f1" opacity="0.35"/>
 
-                    {/* Logo backdrop — rounded square with gradient */}
-                    <rect x="148" y="98" width="104" height="104" rx="18" fill="url(#hGrad)" filter="url(#logoGlow)" opacity="0.9"/>
-                    <rect x="148" y="98" width="104" height="104" rx="18" fill="none" stroke="white" strokeWidth="1" opacity="0.15"/>
+                    {/* ── Logo — blurred glow layer (behind, no sharp edge) ── */}
+                    <rect x="156" y="116" width="88" height="88" rx="22" fill="#1A6BD9" filter="url(#behindGlow)" opacity="0.55"/>
 
-                    {/* H letterform — geometric construction */}
-                    {/* Left vertical bar */}
-                    <rect x="163" y="114" width="16" height="72" rx="3" fill="white" filter="url(#subtleGlow)"/>
-                    {/* Right vertical bar */}
-                    <rect x="221" y="114" width="16" height="72" rx="3" fill="white" filter="url(#subtleGlow)"/>
-                    {/* Crossbar */}
-                    <rect x="163" y="146" width="74" height="14" rx="3" fill="white" filter="url(#subtleGlow)"/>
+                    {/* ── Logo — crisp layer (matches LogoIcon exactly, scaled 2×) ── */}
+                    {/* scale=2, origin offset = (156, 116)  →  44×44 → 88×88 */}
+                    {/* backdrop square */}
+                    <rect x="160" y="120" width="80" height="80" rx="22" fill="url(#logoSquareGrad)"/>
+                    {/* border highlight */}
+                    <rect x="160" y="120" width="80" height="80" rx="22" fill="none" stroke="white" strokeWidth="1" opacity="0.12"/>
+                    {/* H — left bar  (x=12→180, y=11→138, w=4.5→9, h=22→44, rx=2.2→4.4) */}
+                    <rect x="180" y="138" width="9" height="44" rx="4" fill="white"/>
+                    {/* H — right bar (x=27.5→211, y=11→138, w=4.5→9, h=22→44) */}
+                    <rect x="211" y="138" width="9" height="44" rx="4" fill="white"/>
+                    {/* H — arc crossbar: M16.5 20.5 Q22 16 27.5 20.5 scaled×2 + offset */}
+                    {/* M(156+33)(116+41) Q(156+44)(116+32)(156+55)(116+41) = M189 157 Q200 148 211 157 */}
+                    <path d="M189 157 Q200 148 211 157" stroke="white" strokeWidth="8" strokeLinecap="round" fill="none"/>
+                    {/* Sparkle dot (cx=36→228, cy=8→132, r=2.5→5) */}
+                    <circle cx="228" cy="132" r="5" fill="#93c5fd"/>
 
-                    {/* Brand tagline lines below H */}
-                    <rect x="170" y="214" width="60" height="2" rx="1" fill="white" opacity="0.35"/>
-                    <rect x="182" y="220" width="36" height="1.5" rx="1" fill="white" opacity="0.2"/>
-
-                    {/* Floating accent dots */}
-                    <circle cx="110" cy="90" r="2.5" fill="#60a5fa" opacity="0.5"/>
-                    <circle cx="290" cy="90" r="2" fill="#818cf8" opacity="0.45"/>
-                    <circle cx="105" cy="230" r="2" fill="#60a5fa" opacity="0.4"/>
-                    <circle cx="295" cy="230" r="2.5" fill="#818cf8" opacity="0.45"/>
-                    <circle cx="60" cy="160" r="1.5" fill="#93c5fd" opacity="0.35"/>
-                    <circle cx="340" cy="160" r="1.5" fill="#a5b4fc" opacity="0.35"/>
+                    {/* Accent dots */}
+                    <circle cx="110" cy="88"  r="2.5" fill="#60a5fa" opacity="0.5"/>
+                    <circle cx="290" cy="88"  r="2"   fill="#818cf8" opacity="0.45"/>
+                    <circle cx="108" cy="232" r="2"   fill="#60a5fa" opacity="0.4"/>
+                    <circle cx="292" cy="232" r="2.5" fill="#818cf8" opacity="0.45"/>
+                    <circle cx="58"  cy="160" r="1.5" fill="#93c5fd" opacity="0.3"/>
+                    <circle cx="342" cy="160" r="1.5" fill="#a5b4fc" opacity="0.3"/>
                   </g>
                 </svg>
               </div>
