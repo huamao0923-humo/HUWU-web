@@ -81,7 +81,7 @@ export default async function AboutPage() {
         <div className="container-custom">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
-              <div className="badge-pill mb-4">品牌故事</div>
+              <div className="badge-pill-lg mb-4">品牌故事</div>
               <h2 className="section-title mb-6">從一個夢想開始</h2>
               <div className="space-y-4 text-gray-600 leading-relaxed">
                 <p>
@@ -200,7 +200,7 @@ export default async function AboutPage() {
       <section className="section-padding bg-gray-50">
         <div className="container-custom">
           <div className="text-center mb-12">
-            <div className="badge-pill mx-auto mb-4">核心價值</div>
+            <div className="badge-pill-lg mx-auto mb-4">核心價值</div>
             <h2 className="section-title">我們堅持的原則</h2>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -219,7 +219,7 @@ export default async function AboutPage() {
       <section className="section-padding bg-white">
         <div className="container-custom">
           <div className="text-center mb-12">
-            <div className="badge-pill mx-auto mb-4">我們的團隊</div>
+            <div className="badge-pill-lg mx-auto mb-4">我們的團隊</div>
             <h2 className="section-title">認識我們的專業團隊</h2>
             <p className="section-subtitle mx-auto">每位成員都是各自領域的專家，共同為您打造最佳解決方案</p>
           </div>

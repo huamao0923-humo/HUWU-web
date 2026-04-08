@@ -75,6 +75,12 @@
     @apply bg-brand-50 text-brand-600 border border-brand-200/60;
   }
 
+  /* Badge large - 2 size levels up */
+  .badge-pill-lg {
+    @apply inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-lg font-medium;
+    @apply bg-brand-50 text-brand-600 border border-brand-200/60;
+  }
+
   /* Dot pattern background */
   .dot-pattern {
     background-image: radial-gradient(circle, rgba(43, 123, 229, 0.12) 1px, transparent 1px);
