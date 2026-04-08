@@ -277,10 +277,10 @@ export default async function AboutPage() {
 
 
       {/* CTA */}
-      <section className="section-padding bg-white text-center">
+      <section className="section-padding bg-brand-600 text-center">
         <div className="container-custom max-w-2xl">
-          <h2 className="section-title mb-4">加入我們的客戶行列</h2>
-          <p className="text-gray-500 mb-8">立即聯繫我們，讓我們一起規劃您的數位化之路</p>
+          <h2 className="section-title mb-4 text-white">加入我們的客戶行列</h2>
+          <p className="text-white/80 mb-8">立即聯繫我們，讓我們一起規劃您的數位化之路</p>
           <Link href="/contact" className="btn-primary text-base px-10 py-4">
             免費預約諮詢
           </Link>
