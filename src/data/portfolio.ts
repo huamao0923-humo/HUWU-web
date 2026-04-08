@@ -15,6 +15,7 @@ export type StaticPortfolioItem = {
   demoAvailable?: boolean
   demoUrl?: string
   uiManualUrl?: string
+  coverImage?: { url: string; alt?: string }
   images?: { image: { url: string; alt?: string } }[]
 }
 
