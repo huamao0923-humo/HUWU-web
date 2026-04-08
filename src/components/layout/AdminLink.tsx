@@ -7,18 +7,32 @@ export default function AdminLink() {
   const [open, setOpen] = useState(false)
   const [value, setValue] = useState('')
   const [error, setError] = useState(false)
+  const [loading, setLoading] = useState(false)
   const router = useRouter()
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    if (value === 'zxc83699777') {
-      setOpen(false)
-      setValue('')
-      setError(false)
-      router.push('/admin')
-    } else {
+    setLoading(true)
+    try {
+      const res = await fetch('/api/admin-auth', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ password: value }),
+      })
+      if (res.ok) {
+        setOpen(false)
+        setValue('')
+        setError(false)
+        router.push('/admin')
+      } else {
+        setError(true)
+        setValue('')
+      }
+    } catch {
       setError(true)
       setValue('')
+    } finally {
+      setLoading(false)
     }
   }
 
@@ -43,6 +57,7 @@ export default function AdminLink() {
                 onChange={e => { setValue(e.target.value); setError(false) }}
                 placeholder="輸入密碼"
                 autoFocus
+                disabled={loading}
                 className={`w-full border rounded-lg px-4 py-2.5 text-sm outline-none transition-colors mb-1 ${
                   error ? 'border-red-400 bg-red-50' : 'border-gray-300 focus:border-blue-500'
                 }`}
@@ -53,15 +68,17 @@ export default function AdminLink() {
                 <button
                   type="button"
                   onClick={() => { setOpen(false); setValue(''); setError(false) }}
-                  className="flex-1 border border-gray-300 text-gray-600 rounded-lg py-2 text-sm hover:bg-gray-50 transition-colors"
+                  disabled={loading}
+                  className="flex-1 border border-gray-300 text-gray-600 rounded-lg py-2 text-sm hover:bg-gray-50 transition-colors disabled:opacity-50"
                 >
                   取消
                 </button>
                 <button
                   type="submit"
-                  className="flex-1 bg-blue-600 text-white rounded-lg py-2 text-sm hover:bg-blue-700 transition-colors"
+                  disabled={loading}
+                  className="flex-1 bg-blue-600 text-white rounded-lg py-2 text-sm hover:bg-blue-700 transition-colors disabled:opacity-50"
                 >
-                  確認
+                  {loading ? '驗證中...' : '確認'}
                 </button>
               </div>
             </form>
