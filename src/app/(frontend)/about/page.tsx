@@ -97,69 +97,112 @@ export default async function AboutPage() {
               </div>
             </div>
             <div className="relative">
-              <div className="aspect-square bg-gradient-to-br from-brand-50 via-blue-50 to-indigo-100 rounded-3xl flex items-center justify-center overflow-hidden">
-                {/* Professional Tech SVG Icon */}
-                <svg viewBox="0 0 240 240" className="w-44 h-44" fill="none">
+              <div className="aspect-[5/4] bg-gradient-to-br from-slate-900 via-blue-950 to-indigo-950 rounded-3xl overflow-hidden">
+                <svg viewBox="0 0 400 320" className="w-full h-full" fill="none">
                   <defs>
-                    <linearGradient id="techGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
-                      <stop offset="0%" stopColor="#0ea5e9" />
-                      <stop offset="100%" stopColor="#2563eb" />
+                    <linearGradient id="hGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor="#3b82f6" />
+                      <stop offset="100%" stopColor="#6366f1" />
                     </linearGradient>
-                    <linearGradient id="techGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
-                      <stop offset="0%" stopColor="#1e40af" />
-                      <stop offset="100%" stopColor="#4f46e5" />
+                    <linearGradient id="glowBg" x1="50%" y1="0%" x2="50%" y2="100%">
+                      <stop offset="0%" stopColor="#1d4ed8" stopOpacity="0.4" />
+                      <stop offset="100%" stopColor="#4338ca" stopOpacity="0.1" />
                     </linearGradient>
-                    <filter id="glow">
-                      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                    <radialGradient id="centerGlow" cx="50%" cy="50%" r="50%">
+                      <stop offset="0%" stopColor="#3b82f6" stopOpacity="0.35" />
+                      <stop offset="100%" stopColor="#3b82f6" stopOpacity="0" />
+                    </radialGradient>
+                    <filter id="logoGlow" x="-40%" y="-40%" width="180%" height="180%">
+                      <feGaussianBlur stdDeviation="10" result="blur"/>
                       <feMerge>
-                        <feMergeNode in="coloredBlur"/>
+                        <feMergeNode in="blur"/>
                         <feMergeNode in="SourceGraphic"/>
                       </feMerge>
                     </filter>
+                    <filter id="subtleGlow" x="-20%" y="-20%" width="140%" height="140%">
+                      <feGaussianBlur stdDeviation="4" result="blur"/>
+                      <feMerge>
+                        <feMergeNode in="blur"/>
+                        <feMergeNode in="SourceGraphic"/>
+                      </feMerge>
+                    </filter>
+                    <clipPath id="cardClip">
+                      <rect width="400" height="320" rx="24"/>
+                    </clipPath>
                   </defs>
 
-                  {/* Outer ring */}
-                  <circle cx="120" cy="120" r="115" fill="none" stroke="url(#techGrad1)" strokeWidth="2" opacity="0.3"/>
-                  <circle cx="120" cy="120" r="105" fill="none" stroke="url(#techGrad2)" strokeWidth="1.5" opacity="0.5"/>
+                  <g clipPath="url(#cardClip)">
+                    {/* Background grid */}
+                    <g stroke="#3b82f6" strokeWidth="0.6" opacity="0.08">
+                      {[50,100,150,200,250,300,350].map(x => (
+                        <line key={x} x1={x} y1="0" x2={x} y2="320"/>
+                      ))}
+                      {[40,80,120,160,200,240,280].map(y => (
+                        <line key={y} x1="0" y1={y} x2="400" y2={y}/>
+                      ))}
+                    </g>
 
-                  {/* Main background circle */}
-                  <circle cx="120" cy="120" r="100" fill="url(#techGrad1)" opacity="0.95"/>
+                    {/* Center radial glow */}
+                    <circle cx="200" cy="160" r="160" fill="url(#centerGlow)"/>
 
-                  {/* Central tech element - interconnected nodes */}
-                  <g filter="url(#glow)">
-                    {/* Top node */}
-                    <circle cx="120" cy="65" r="8" fill="white"/>
-                    {/* Left node */}
-                    <circle cx="75" cy="110" r="8" fill="white"/>
-                    {/* Right node */}
-                    <circle cx="165" cy="110" r="8" fill="white"/>
-                    {/* Center node */}
-                    <circle cx="120" cy="130" r="10" fill="white"/>
-                    {/* Bottom node */}
-                    <circle cx="120" cy="175" r="8" fill="white"/>
+                    {/* Outer orbit rings */}
+                    <circle cx="200" cy="160" r="148" fill="none" stroke="#6366f1" strokeWidth="1" opacity="0.15" strokeDasharray="6 6"/>
+                    <circle cx="200" cy="160" r="125" fill="none" stroke="#3b82f6" strokeWidth="1" opacity="0.2"/>
+                    <circle cx="200" cy="160" r="100" fill="none" stroke="#6366f1" strokeWidth="0.8" opacity="0.25" strokeDasharray="3 5"/>
+
+                    {/* Corner bracket decorations — top-left */}
+                    <g stroke="#60a5fa" strokeWidth="1.8" opacity="0.5" strokeLinecap="round">
+                      <path d="M 24 52 L 24 24 L 52 24"/>
+                    </g>
+                    {/* top-right */}
+                    <g stroke="#818cf8" strokeWidth="1.8" opacity="0.5" strokeLinecap="round">
+                      <path d="M 348 24 L 376 24 L 376 52"/>
+                    </g>
+                    {/* bottom-left */}
+                    <g stroke="#60a5fa" strokeWidth="1.8" opacity="0.5" strokeLinecap="round">
+                      <path d="M 24 268 L 24 296 L 52 296"/>
+                    </g>
+                    {/* bottom-right */}
+                    <g stroke="#818cf8" strokeWidth="1.8" opacity="0.5" strokeLinecap="round">
+                      <path d="M 348 296 L 376 296 L 376 268"/>
+                    </g>
+
+                    {/* Subtle circuit traces */}
+                    <g stroke="#3b82f6" strokeWidth="1" opacity="0.2" strokeLinecap="round">
+                      <path d="M 24 100 L 70 100 L 70 130"/>
+                      <path d="M 376 100 L 330 100 L 330 130"/>
+                      <path d="M 24 220 L 70 220 L 70 190"/>
+                      <path d="M 376 220 L 330 220 L 330 190"/>
+                    </g>
+                    <circle cx="70" cy="130" r="2.5" fill="#3b82f6" opacity="0.4"/>
+                    <circle cx="330" cy="130" r="2.5" fill="#6366f1" opacity="0.4"/>
+                    <circle cx="70" cy="190" r="2.5" fill="#3b82f6" opacity="0.4"/>
+                    <circle cx="330" cy="190" r="2.5" fill="#6366f1" opacity="0.4"/>
+
+                    {/* Logo backdrop — rounded square with gradient */}
+                    <rect x="148" y="98" width="104" height="104" rx="18" fill="url(#hGrad)" filter="url(#logoGlow)" opacity="0.9"/>
+                    <rect x="148" y="98" width="104" height="104" rx="18" fill="none" stroke="white" strokeWidth="1" opacity="0.15"/>
+
+                    {/* H letterform — geometric construction */}
+                    {/* Left vertical bar */}
+                    <rect x="163" y="114" width="16" height="72" rx="3" fill="white" filter="url(#subtleGlow)"/>
+                    {/* Right vertical bar */}
+                    <rect x="221" y="114" width="16" height="72" rx="3" fill="white" filter="url(#subtleGlow)"/>
+                    {/* Crossbar */}
+                    <rect x="163" y="146" width="74" height="14" rx="3" fill="white" filter="url(#subtleGlow)"/>
+
+                    {/* Brand tagline lines below H */}
+                    <rect x="170" y="214" width="60" height="2" rx="1" fill="white" opacity="0.35"/>
+                    <rect x="182" y="220" width="36" height="1.5" rx="1" fill="white" opacity="0.2"/>
+
+                    {/* Floating accent dots */}
+                    <circle cx="110" cy="90" r="2.5" fill="#60a5fa" opacity="0.5"/>
+                    <circle cx="290" cy="90" r="2" fill="#818cf8" opacity="0.45"/>
+                    <circle cx="105" cy="230" r="2" fill="#60a5fa" opacity="0.4"/>
+                    <circle cx="295" cy="230" r="2.5" fill="#818cf8" opacity="0.45"/>
+                    <circle cx="60" cy="160" r="1.5" fill="#93c5fd" opacity="0.35"/>
+                    <circle cx="340" cy="160" r="1.5" fill="#a5b4fc" opacity="0.35"/>
                   </g>
-
-                  {/* Connection lines */}
-                  <line x1="120" y1="73" x2="120" y2="120" stroke="white" strokeWidth="2" opacity="0.8"/>
-                  <line x1="114" y1="73" x2="82" y2="108" stroke="white" strokeWidth="2" opacity="0.7"/>
-                  <line x1="126" y1="73" x2="158" y2="108" stroke="white" strokeWidth="2" opacity="0.7"/>
-                  <line x1="75" y1="118" x2="110" y2="130" stroke="white" strokeWidth="2" opacity="0.7"/>
-                  <line x1="165" y1="118" x2="130" y2="130" stroke="white" strokeWidth="2" opacity="0.7"/>
-                  <line x1="120" y1="140" x2="120" y2="167" stroke="white" strokeWidth="2" opacity="0.8"/>
-
-                  {/* Code brackets symbols */}
-                  <g fill="none" stroke="white" strokeWidth="2" opacity="0.6">
-                    {/* Left bracket */}
-                    <path d="M 50 100 L 50 140 M 50 100 L 60 100 M 50 140 L 60 140"/>
-                    {/* Right bracket */}
-                    <path d="M 190 100 L 190 140 M 190 100 L 180 100 M 190 140 L 180 140"/>
-                  </g>
-
-                  {/* Decorative elements - small circles */}
-                  <circle cx="40" cy="50" r="2.5" fill="white" opacity="0.5"/>
-                  <circle cx="200" cy="55" r="2" fill="white" opacity="0.4"/>
-                  <circle cx="45" cy="190" r="2" fill="white" opacity="0.4"/>
-                  <circle cx="195" cy="185" r="2.5" fill="white" opacity="0.5"/>
                 </svg>
               </div>
               {/* Stats overlay */}
@@ -235,15 +278,19 @@ export default async function AboutPage() {
               ))}
             </div>
           ) : (
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {['技術長 / 全端工程師', '前端工程師', 'UI/UX 設計師'].map((role, i) => (
-                <div key={i} className="card p-6 text-center">
-                  <div className="w-20 h-20 rounded-full bg-gradient-to-br from-brand-400 to-brand-600 flex items-center justify-center text-white text-2xl font-bold mx-auto mb-3">
-                    {['A', 'B', 'C'][i]}
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              {[
+                { role: '技術長 / 全端工程師', initial: 'A', color: 'from-blue-400 to-blue-600' },
+                { role: '前端工程師', initial: 'B', color: 'from-cyan-400 to-blue-500' },
+                { role: 'UI/UX 設計師', initial: 'C', color: 'from-purple-400 to-pink-500' },
+                { role: '前端視覺設計師', initial: 'D', color: 'from-indigo-400 to-purple-600' },
+              ].map((member, i) => (
+                <div key={i} className="card p-6 text-center group hover:shadow-lg transition-all duration-300">
+                  <div className={`w-20 h-20 rounded-full bg-gradient-to-br ${member.color} flex items-center justify-center text-white text-2xl font-bold mx-auto mb-3 shadow-lg group-hover:scale-110 transition-transform duration-300`}>
+                    {member.initial}
                   </div>
                   <h3 className="font-bold text-gray-900">團隊成員 {i + 1}</h3>
-                  <p className="text-sm text-brand-600 mt-0.5">{role}</p>
-                  <p className="text-xs text-gray-400 mt-2">請至後台新增團隊成員資料</p>
+                  <p className="text-sm text-brand-600 mt-0.5">{member.role}</p>
                 </div>
               ))}
             </div>
