@@ -2,9 +2,11 @@ import Link from 'next/link'
 
 const footerLinks = {
   services: [
-    { href: '/services#website', label: '官方網站建置' },
-    { href: '/services#system', label: '管理系統開發' },
-    { href: '/services#api', label: 'API 整合/自動化' },
+    { href: '/services#website', label: 'AI 快建站' },
+    { href: '/services#ecommerce', label: '電商網站' },
+    { href: '/services#system', label: '系統開發' },
+    { href: '/services#ai', label: 'AI Agent 客製' },
+    { href: '/services#tech', label: '技術服務' },
   ],
   company: [
     { href: '/about', label: '關於我們' },
@@ -19,9 +21,9 @@ const footerLinks = {
 
 export default function Footer({ settings }: { settings: any }) {
   const companyName = settings?.companyName || '華宇資訊科技'
-  const email = settings?.email || 'info@huwu.com.tw'
-  const phone = settings?.phone || '+886-2-XXXX-XXXX'
-  const address = settings?.address || '台北市信義區'
+  const email = settings?.email || 'huamoa0923@gmail.com'
+  const phone = settings?.phone || '+886-900611682'
+  const address = settings?.address || '台中市北屯區軍榮街330號'
 
   return (
     <footer className="bg-gray-900 text-gray-400">
@@ -36,7 +38,7 @@ export default function Footer({ settings }: { settings: any }) {
               <span className="font-bold text-white text-lg">{companyName}</span>
             </Link>
             <p className="text-sm leading-relaxed mb-5">
-              專注企業數位化轉型，提供官方網站建置、管理系統開發及 API 整合服務，14 天快速交付。
+              專注企業數位化轉型，提供 AI 快建站、電商平台、系統開發、AI Agent 客製到技術顧問，快速交付、透明報價。
             </p>
             {/* Social Links */}
             <div className="flex items-center gap-3">
