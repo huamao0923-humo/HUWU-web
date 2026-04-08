@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import AdminLink from './AdminLink'
 
 const footerLinks = {
   services: [
@@ -30,7 +31,7 @@ export default function Footer({ settings }: { settings: any }) {
       <div className="container-custom py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
           {/* Brand */}
-          <div className="lg:col-span-1">
+          <div>
             <Link href="/" className="flex items-center gap-2.5 mb-4 group">
               <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-brand-500 to-brand-600 flex items-center justify-center">
                 <span className="text-white font-bold text-sm">H</span>
@@ -116,7 +117,7 @@ export default function Footer({ settings }: { settings: any }) {
           <div className="flex items-center gap-4 text-sm">
             <Link href="/contact" className="hover:text-white transition-colors">聯絡我們</Link>
             <span className="text-gray-700">|</span>
-            <Link href="/admin" className="hover:text-white transition-colors">後台管理</Link>
+            <AdminLink />
           </div>
         </div>
       </div>
