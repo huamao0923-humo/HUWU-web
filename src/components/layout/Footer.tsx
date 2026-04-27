@@ -16,7 +16,10 @@ const footerLinks = {
     { href: '/pricing', label: '方案報價' },
   ],
   legal: [
-    { href: '/contact', label: '聯絡我們' },
+    { href: '/terms', label: '服務條款' },
+    { href: '/privacy', label: '隱私權政策' },
+    { href: '/refund-policy', label: '退款政策' },
+    { href: '/payment-terms', label: '付款條款' },
   ],
 }
 
@@ -114,8 +117,14 @@ export default function Footer({ settings }: { settings: any }) {
           <p className="text-sm">
             © {new Date().getFullYear()} {companyName}. All rights reserved.
           </p>
-          <div className="flex items-center gap-4 text-sm">
+          <div className="flex items-center gap-3 text-sm flex-wrap justify-center md:justify-end">
             <Link href="/contact" className="hover:text-white transition-colors">聯絡我們</Link>
+            <span className="text-gray-700">|</span>
+            <Link href="/terms" className="hover:text-white transition-colors">服務條款</Link>
+            <span className="text-gray-700">|</span>
+            <Link href="/privacy" className="hover:text-white transition-colors">隱私政策</Link>
+            <span className="text-gray-700">|</span>
+            <Link href="/refund-policy" className="hover:text-white transition-colors">退款政策</Link>
             <span className="text-gray-700">|</span>
             <AdminLink />
           </div>
